@@ -1,0 +1,51 @@
+robot_profile: ur5e_hande_dual
+schema_version: 0.1
+robots:
+  - arm_id: left_arm
+    namespace: /left_arm
+    tf_prefix: left_
+    xacro_path: src/ur_hande_description/urdf/ur_hande.urdf.xacro
+    moveit_config_package: ur_moveit_config
+    base_frame: left_base_link
+    ee_frame: left_tool0
+    arm_joint_names:
+      - left_shoulder_pan_joint
+      - left_shoulder_lift_joint
+      - left_elbow_joint
+      - left_wrist_1_joint
+      - left_wrist_2_joint
+      - left_wrist_3_joint
+    gripper_joint_names:
+      - left_robotiq_hande_left_finger_joint
+      - left_robotiq_hande_right_finger_joint
+    gazebo_controller_manager: /left_controller_manager
+    servo_command_topic: /left_arm/target_twist_states
+    gripper_command_topic: /left_hande_position_controller/commands
+    home_joint_positions: [0.0, -1.57, 1.57, 0.0, 1.57, 0.0]
+    #spawn_pose_xyz_rpy: [0.0, 0.60, 0.0, 0.0, 0.0, -1.5708]
+    spawn_pose_xyz_rpy: [0.0, 0.60, 0.0, 0.0, 0.0, 0.0]
+  - arm_id: right_arm
+    namespace: /right_arm
+    tf_prefix: right_
+    xacro_path: src/ur_hande_description/urdf/ur_hande.urdf.xacro
+    moveit_config_package: ur_moveit_config
+    base_frame: right_base_link
+    ee_frame: right_tool0
+    arm_joint_names:
+      - right_shoulder_pan_joint
+      - right_shoulder_lift_joint
+      - right_elbow_joint
+      - right_wrist_1_joint
+      - right_wrist_2_joint
+      - right_wrist_3_joint
+    gripper_joint_names:
+      - right_robotiq_hande_left_finger_joint
+      - right_robotiq_hande_right_finger_joint
+    gazebo_controller_manager: /right_controller_manager
+    servo_command_topic: /right_arm/target_twist_states
+    gripper_command_topic: /right_hande_position_controller/commands
+    home_joint_positions: [0.0, -1.57, 1.57, 0.0, 1.57, 0.0]
+    #spawn_pose_xyz_rpy: [0.0, 0.60, 0.0, 0.0, 0.0, 1.5708]
+    spawn_pose_xyz_rpy: [0.0, -0.60, 0.0, 0.0, 0.0, 0.0]
+notes:
+  - The dual-arm launch now has per-arm Gazebo controllers, Servo nodes, and teleop bridges.

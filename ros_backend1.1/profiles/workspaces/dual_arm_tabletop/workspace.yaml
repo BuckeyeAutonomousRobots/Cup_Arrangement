@@ -1,0 +1,22 @@
+workspace_profile: dual_arm_tabletop
+schema_version: 0.1
+workspace_root_name: GazeboWorkspace
+world:
+  name: ur_hande_dual_arm_tabletop
+  sdf_output: simulation/worlds/ur_hande_dual_arm_tabletop.sdf
+  background_rgba: [0.85, 0.87, 0.90, 1.0]
+  ambient_rgba: [0.60, 0.60, 0.60, 1.0]
+table:
+  name: table
+  unity_object_name: Gazebo_Table
+  gazebo_pose_xyz: [0.0, 0.0, -0.4]
+  gazebo_pose_rpy: [0.0, 0.0, 0.0]
+  gazebo_size_xyz: [2.0, 2.0, 0.8]
+  unity_size_xyz: [2.0, 0.8, 2.0]
+  unity_local_position_xyz: [0.0, -0.4, 0.0]
+  color_rgba: [0.75, 0.75, 0.75, 1.0]
+task_groups:
+  - name: TaskGroup_Main
+    unity_local_position_xyz: [0.0, 0.0, 0.25]
+    unity_local_euler_xyz: [0.0, 0.0, 0.0]
+    description: Current task anchor near the tabletop center, slightly forward for MR visibility.

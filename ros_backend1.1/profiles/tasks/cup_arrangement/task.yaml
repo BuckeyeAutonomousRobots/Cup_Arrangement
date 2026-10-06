@@ -1,0 +1,70 @@
+task_profile: cup_arrangement
+schema_version: '0.1'
+description: Espresso cup and saucer; lightweight primitive collision geometry.
+task_group_name: TaskGroup_Main
+sync_topic_prefix: /unity_sync
+randomization:
+  seed: 0
+  x_bounds:
+  - 0.14
+  - 0.36
+  y_bounds:
+  - -0.14
+  - 0.14
+  cup_yaw_bounds:
+  - -3.141592653589793
+  - 3.141592653589793
+  minimum_separation: 0.14
+  max_attempts: 10000
+debug:
+  tool_to_cup_m: 0.17
+  clearance_m: 0.16
+  max_joint_speed: 0.35
+  waypoint_timeout_sec: 90
+objects:
+- id: Sync_TaskPlatform
+  type: platform
+  static: true
+  size_xyz:
+  - 0.5
+  - 0.1
+  - 0.5
+  local_position_xyz:
+  - 0
+  - 0.05
+  - 0
+  color_rgba:
+  - 0.32
+  - 0.36
+  - 0.38
+  - 1
+- id: Sync_EspressoCup
+  type: espresso_cup
+  static: false
+  radius: 0.0243
+  height: 0.05
+  mass_kg: 0.06
+  local_position_xyz:
+  - 0.08
+  - 0.126
+  - -0.06
+  color_rgba:
+  - 0.95
+  - 0.92
+  - 0.85
+  - 1
+- id: Sync_Saucer
+  type: saucer
+  static: false
+  radius: 0.055
+  height: 0.008
+  mass_kg: 0.1
+  local_position_xyz:
+  - -0.08
+  - 0.105
+  - 0.06
+  color_rgba:
+  - 0.85
+  - 0.9
+  - 0.95
+  - 1

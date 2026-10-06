@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+
+# ROS/colcon outputs (if generated in this repo later)
+build/
+install/
+log/
+
+# Runtime logs/scripts output
+*.log
+tmp/
+eval_results/
+runtime/

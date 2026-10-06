@@ -1,0 +1,56 @@
+# Local secrets and machine configuration
+.env
+.hosting.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.ssh/
+.codex/
+.agents/
+
+# Python/ROS/build outputs
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+build/
+install/
+log/
+dist/
+*.egg-info/
+
+# Experiment artifacts and large data
+runs/
+runtime/
+eval_results/
+data/
+datasets/
+cache/
+checkpoints/
+*.pt
+*.pth
+*.safetensors
+*.npy
+*.npz
+*.bag
+*.db3
+*.mcap
+*.mp4
+*.mov
+*.avi
+*.log
+*.claim
+*.sqlite*
+*.tar*
+*.zip
+ros_backend1.1/simulation/worlds/ur_hande_dual_arm_tabletop.sdf
+
+# Local notes/desktop debris
+.DS_Store
+Writings/
+handoff.md
+SESSION_RESUME.md
+SYSTEM_HANDOFF_AND_SENSITIVITY_STUDY.md

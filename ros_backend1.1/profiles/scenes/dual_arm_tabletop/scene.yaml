@@ -1,0 +1,14 @@
+scene_profile: dual_arm_tabletop
+schema_version: 0.2
+gazebo_world: simulation/worlds/ur_hande_dual_arm_tabletop.sdf
+unity_scene: UnityApp/Assets/Scenes/GazeboReplica_DualArm_MR.unity
+workspace_profile: ../../workspaces/dual_arm_tabletop/workspace.yaml
+robot_profile: ../../robots/ur5e_hande_dual/robot.yaml
+control_profile: ../../controls/quest_dual_arm.yaml
+task_profile: ../../tasks/pick_place_basic/task.yaml
+active_task_group: TaskGroup_Main
+workspace_root_name: GazeboWorkspace
+notes:
+  - Workspace, robot, and task are separate profiles.
+  - Task object poses are local to active_task_group, not hard-coded globally.
+  - Gazebo still receives top-level object models generated from workspace + task group + object local poses.

@@ -1,0 +1,22 @@
+control_profile: quest_dual_arm
+schema_version: 0.1
+mode_controls:
+  central_panel: true
+  controller_mode_buttons: moved_to_panel_target
+left_arm:
+  engage_button: left_grip_hold
+  gripper_button: left_trigger_tap
+  rotation_button: left_x_hold
+  attachment_toggle_button: left_y_tap
+right_arm:
+  engage_button: right_grip_hold
+  gripper_button: right_trigger_tap
+  rotation_button: right_a_hold
+  attachment_toggle_button: right_b_tap
+mapping:
+  position_mapping_mode: unity_world_delta
+  rotation_mapping_mode: controller_delta_rotvec
+  attachment_mode: target_ee_follows_controller_pose_in_workspace_frame
+safety:
+  require_grip_to_move: true
+  gripper_trigger_requires_grip: true

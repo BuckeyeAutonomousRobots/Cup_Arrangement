@@ -1,0 +1,43 @@
+task_profile: rubik_2x2
+schema_version: 0.1
+description: 2x2 Rubik cube pick/place task. The cube is 40 mm across so it fits inside the Robotiq Hand-E gripper with clearance.
+task_group_name: TaskGroup_Main
+sync_topic_prefix: /unity_sync
+objects:
+  - id: Sync_TaskPlatform
+    type: platform
+    link_name: platform_link
+    static: true
+    size_xyz: [0.280, 0.075, 0.240]
+    local_position_xyz: [0.000, 0.0375, 0.020]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.38, 0.38, 0.36, 1.0]
+  - id: Sync_Rubik2x2
+    type: rubik_2x2
+    link_name: body_link
+    static: false
+    size_xyz: [0.040, 0.040, 0.040]
+    local_position_xyz: [0.000, 0.095, -0.020]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.025, 0.025, 0.025, 1.0]
+    mass_kg: 0.055
+    rubik_order: 2
+    multi_body: true
+    cubie_gap_m: 0.0012
+    sticker_gap_m: 0.002
+  - id: Sync_RubikGoalPlate_Left
+    type: plate
+    link_name: plate_link
+    static: true
+    size_xyz: [0.090, 0.005, 0.090]
+    local_position_xyz: [-0.115, 0.0775, 0.075]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.60, 0.80, 0.95, 1.0]
+  - id: Sync_RubikGoalPlate_Right
+    type: plate
+    link_name: plate_link
+    static: true
+    size_xyz: [0.090, 0.005, 0.090]
+    local_position_xyz: [0.115, 0.0775, 0.075]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.60, 0.80, 0.95, 1.0]

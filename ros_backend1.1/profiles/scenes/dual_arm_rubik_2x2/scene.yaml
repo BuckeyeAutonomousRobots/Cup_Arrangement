@@ -1,0 +1,13 @@
+scene_profile: dual_arm_rubik_2x2
+schema_version: 0.2
+gazebo_world: simulation/worlds/ur_hande_dual_arm_tabletop.sdf
+unity_scene: UnityApp/Assets/Scenes/GazeboReplica_DualArm_MR.unity
+workspace_profile: ../../workspaces/dual_arm_tabletop/workspace.yaml
+robot_profile: ../../robots/ur5e_hande_dual/robot.yaml
+control_profile: ../../controls/quest_dual_arm.yaml
+task_profile: ../../tasks/rubik_2x2/task.yaml
+active_task_group: TaskGroup_Main
+workspace_root_name: GazeboWorkspace
+notes:
+  - Use this scene profile with generate_dual_world or select_task to swap the tabletop task to the 2x2 Rubik task.
+  - The Rubik task is generated as a multi-body Gazebo mechanism; Unity should visualize the generated cubies from active_task.json.

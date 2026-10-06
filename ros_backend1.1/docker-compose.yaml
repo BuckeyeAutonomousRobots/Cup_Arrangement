@@ -1,0 +1,29 @@
+name: ${COMPOSE_PROJECT_NAME:-bar_cup_arrangement}
+services:
+  motion_planner:
+    build:
+      context: .
+      args:
+        UID: ${LOCAL_UID:-1000}
+        GID: ${LOCAL_GID:-1000}
+        ROS_BASE_IMAGE: ${ROS_BASE_IMAGE:-ros:humble-ros-base}
+    container_name: ${CONTAINER:-bar_cup_arrangement_backend}
+    init: true
+    ports:
+      - "127.0.0.1:${NOVNC_HOST_PORT:-6080}:6080"
+      - "${ROS_TCP_HOST_BIND:-127.0.0.1}:${ROS_TCP_HOST_PORT:-10001}:10000"
+      - "${QUEST_TCP_HOST_BIND:-127.0.0.1}:${QUEST_TCP_HOST_PORT:-5026}:5005"
+    volumes:
+      - ./src:/workspace/src:ro
+      - ./simulation:/workspace/simulation
+      - ./profiles:/workspace/profiles
+      - ./tests:/workspace/tests:ro
+      - ./scripts:/workspace/scripts:ro
+    environment:
+      AUTO_COLCON_BUILD: "0"
+      DISPLAY: :1
+      ENABLE_DESKTOP: ${ENABLE_DESKTOP:-0}
+      ENABLE_NOVNC: ${ENABLE_NOVNC:-0}
+      ROS_DOMAIN_ID: ${ROS_DOMAIN_ID:-41}
+      IGN_PARTITION: ${IGN_PARTITION:-bar_cup_arrangement}
+    command: /start_desktop.sh

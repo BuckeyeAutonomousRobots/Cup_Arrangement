@@ -1,0 +1,143 @@
+task_profile: pick_place_basic
+schema_version: 0.1
+description: Current dual-arm task with pick/place objects, plates, and cable insertion objects.
+task_group_name: TaskGroup_Main
+sync_topic_prefix: /unity_sync
+objects:
+  - id: Sync_TaskPlatform
+    type: platform
+    link_name: platform_link
+    static: true
+    size_xyz: [0.462, 0.100, 0.462]
+    local_position_xyz: [0.000, 0.050, 0.000]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.38, 0.38, 0.36, 1.0]
+  - id: Sync_RedCube
+    type: box
+    link_name: body_link
+    static: false
+    size_xyz: [0.020, 0.040, 0.020]
+    local_position_xyz: [-0.055, 0.120, -0.015]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.85, 0.12, 0.12, 1.0]
+    mass_kg: 0.03
+  - id: Sync_GreenCube
+    type: box
+    link_name: body_link
+    static: false
+    size_xyz: [0.020, 0.040, 0.020]
+    local_position_xyz: [0.055, 0.120, -0.015]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.10, 0.70, 0.18, 1.0]
+    mass_kg: 0.03
+  - id: Sync_RedCylinder
+    type: cylinder
+    link_name: body_link
+    static: false
+    radius: 0.010
+    height: 0.048
+    local_position_xyz: [-0.055, 0.124, 0.060]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.85, 0.12, 0.12, 1.0]
+    mass_kg: 0.03
+  - id: Sync_GreenCylinder
+    type: cylinder
+    link_name: body_link
+    static: false
+    radius: 0.010
+    height: 0.048
+    local_position_xyz: [0.055, 0.124, 0.060]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.10, 0.70, 0.18, 1.0]
+    mass_kg: 0.03
+  - id: Sync_Plate_A
+    type: plate
+    link_name: plate_link
+    static: true
+    size_xyz: [0.100, 0.005, 0.100]
+    local_position_xyz: [-0.160, 0.1025, 0.000]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.60, 0.80, 0.95, 1.0]
+  - id: Sync_Plate_B
+    type: plate
+    link_name: plate_link
+    static: true
+    size_xyz: [0.100, 0.005, 0.100]
+    local_position_xyz: [0.160, 0.1025, 0.000]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [0.60, 0.80, 0.95, 1.0]
+  - id: Sync_CableReceiverBox
+    type: port_box
+    link_name: body_link
+    static: true
+    size_xyz: [0.150, 0.040, 0.045]
+    local_position_xyz: [0.000, 0.1225, -0.165]
+    local_euler_xyz: [-90.0, 0.0, 0.0]
+    color_rgba: [1.00, 0.48, 0.05, 1.0]
+    port_size_xyz: [0.018, 0.012, 0.018]
+    ports:
+      - label: loose_2p0mm
+        center_xy: [-0.056, 0.0]
+        size_xyz: [0.020, 0.014, 0.018]
+      - label: loose_1p5mm
+        center_xy: [-0.028, 0.0]
+        size_xyz: [0.019, 0.013, 0.018]
+      - label: default_1p0mm
+        center_xy: [0.000, 0.0]
+        size_xyz: [0.018, 0.012, 0.018]
+      - label: tight_0p5mm
+        center_xy: [0.028, 0.0]
+        size_xyz: [0.017, 0.011, 0.018]
+      - label: tight_0p2mm
+        center_xy: [0.056, 0.0]
+        size_xyz: [0.0164, 0.0104, 0.018]
+    port_color_rgba: [0.015, 0.012, 0.010, 1.0]
+  - id: Sync_CableReceiverBox_Fixed
+    type: port_box
+    link_name: body_link
+    static: false
+    size_xyz: [0.150, 0.040, 0.045]
+    local_position_xyz: [0.000, 0.1225, -0.095]
+    local_euler_xyz: [-90.0, 0.0, 0.0]
+    color_rgba: [1.00, 0.48, 0.05, 1.0]
+    mass_kg: 0.045
+    port_size_xyz: [0.018, 0.012, 0.018]
+    ports:
+      - label: loose_2p0mm
+        center_xy: [-0.056, 0.0]
+        size_xyz: [0.020, 0.014, 0.018]
+      - label: loose_1p5mm
+        center_xy: [-0.028, 0.0]
+        size_xyz: [0.019, 0.013, 0.018]
+      - label: default_1p0mm
+        center_xy: [0.000, 0.0]
+        size_xyz: [0.018, 0.012, 0.018]
+      - label: tight_0p5mm
+        center_xy: [0.028, 0.0]
+        size_xyz: [0.017, 0.011, 0.018]
+      - label: tight_0p2mm
+        center_xy: [0.056, 0.0]
+        size_xyz: [0.0164, 0.0104, 0.018]
+    port_color_rgba: [0.015, 0.012, 0.010, 1.0]
+  - id: Sync_CableRod
+    type: cable_rod
+    link_name: body_link
+    static: false
+    size_xyz: [0.009, 0.009, 0.075]
+    local_position_xyz: [-0.055, 0.1045, 0.135]
+    local_euler_xyz: [0.0, 0.0, 0.0]
+    color_rgba: [1.00, 0.90, 0.35, 1.0]
+    mass_kg: 0.018
+    plug_size_xyz: [0.016, 0.010, 0.016]
+    plug_color_rgba: [1.00, 0.94, 0.45, 1.0]
+  - id: Sync_CableRod_B
+    type: cable_rod
+    link_name: body_link
+    static: false
+    size_xyz: [0.009, 0.009, 0.075]
+    local_position_xyz: [0.055, 0.154, 0.135]
+    local_euler_xyz: [-90.0, 0.0, 0.0]
+    color_rgba: [1.00, 0.90, 0.35, 1.0]
+    mass_kg: 0.018
+    plug_size_xyz: [0.016, 0.010, 0.016]
+    plug_color_rgba: [1.00, 0.94, 0.45, 1.0]

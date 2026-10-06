@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="ur_hande_tabletop">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin
+      filename="ignition-gazebo-physics-system"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-sensors-system"
+      name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre</render_engine>
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-user-commands-system"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-scene-broadcaster-system"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+
+    <scene>
+      <ambient>0.6 0.6 0.6 1</ambient>
+      <background>0.85 0.87 0.9 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.4 0.2 -0.9</direction>
+    </light>
+
+    <!-- Static desk/table. Top surface sits at z=0 for easy robot spawn at z=0. -->
+    <model name="table">
+      <static>true</static>
+      <pose>0 0 -0.4 0 0 0</pose>
+      <link name="table_link">
+        <collision name="table_collision">
+          <geometry>
+            <box>
+              <size>2.0 2.0 0.8</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="table_visual">
+          <geometry>
+            <box>
+              <size>2.0 2.0 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.75 0.75 0.75 1</ambient>
+            <diffuse>0.75 0.75 0.75 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Legacy single-arm scene-synced objects kept for the GazeboReplica_MR backup scene. -->
+    <model name="Sync_RedCube">
+      <static>false</static>
+      <pose>0.59938 -0.12779 0.02000 0 0 0</pose>
+      <link name="body_link">
+        <inertial>
+          <mass>0.03</mass>
+          <inertia>
+            <ixx>0.000002</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000002</iyy>
+            <iyz>0</iyz>
+            <izz>0.000002</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.020 0.020 0.040</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.9</mu>
+                <mu2>0.9</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.020 0.020 0.040</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.85 0.12 0.12 1</ambient>
+            <diffuse>0.85 0.12 0.12 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Sync_GreenCube">
+      <static>false</static>
+      <pose>0.74638 0.05621 0.02000 0 0 0</pose>
+      <link name="body_link">
+        <inertial>
+          <mass>0.03</mass>
+          <inertia>
+            <ixx>0.000002</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000002</iyy>
+            <iyz>0</iyz>
+            <izz>0.000002</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.020 0.020 0.040</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.9</mu>
+                <mu2>0.9</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.020 0.020 0.040</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.10 0.70 0.18 1</ambient>
+            <diffuse>0.10 0.70 0.18 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Sync_RedCylinder">
+      <static>false</static>
+      <pose>0.54938 0.20921 0.02400 0 0 0</pose>
+      <link name="body_link">
+        <inertial>
+          <mass>0.03</mass>
+          <inertia>
+            <ixx>0.0000015</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000015</iyy>
+            <iyz>0</iyz>
+            <izz>0.0000010</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.010</radius>
+              <length>0.048</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.9</mu>
+                <mu2>0.9</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.010</radius>
+              <length>0.048</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.85 0.12 0.12 1</ambient>
+            <diffuse>0.85 0.12 0.12 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Sync_GreenCylinder">
+      <static>false</static>
+      <pose>0.66438 0.24021 0.02400 0 0 0</pose>
+      <link name="body_link">
+        <inertial>
+          <mass>0.03</mass>
+          <inertia>
+            <ixx>0.0000015</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000015</iyy>
+            <iyz>0</iyz>
+            <izz>0.0000010</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.010</radius>
+              <length>0.048</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.9</mu>
+                <mu2>0.9</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.010</radius>
+              <length>0.048</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.10 0.70 0.18 1</ambient>
+            <diffuse>0.10 0.70 0.18 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Sync_Plate_A">
+      <static>true</static>
+      <pose>0.58938 0.35221 0.00250 0 0 0</pose>
+      <link name="plate_link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.100 0.100 0.005</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.100 0.100 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.60 0.80 0.95 1</ambient>
+            <diffuse>0.60 0.80 0.95 1</diffuse>
+            <specular>0.08 0.08 0.08 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Sync_Plate_B">
+      <static>true</static>
+      <pose>0.59638 0.01721 0.00250 0 0 0</pose>
+      <link name="plate_link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.100 0.100 0.005</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.100 0.100 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.60 0.80 0.95 1</ambient>
+            <diffuse>0.60 0.80 0.95 1</diffuse>
+            <specular>0.08 0.08 0.08 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

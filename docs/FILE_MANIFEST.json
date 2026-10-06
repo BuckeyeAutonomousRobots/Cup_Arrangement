@@ -1,0 +1,1815 @@
+{
+  "scope": "Public code, configuration examples, licensed runtime assets and documentation; generated/private artifacts excluded",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 638,
+      "sha256": "bc1b08a139ad38613a4ee6c0669631f5e74a67051f0f0843ef6d6f195b1d81d1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3474,
+      "sha256": "ee0c1a1f6352e82db5ddc493ed6508b043ded52043169b0d5c9b9ada4999c9ac"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1319,
+      "sha256": "d8508fddc7c2d0903c7aa0a1ec01c34854afd83093a92c16b38523b146c88dd8"
+    },
+    {
+      "path": "config/hosting.env.example",
+      "bytes": 566,
+      "sha256": "e47c96c18c9f5520bf6b3105e581776f62e9c55f4084f278bcc154813b03735b"
+    },
+    {
+      "path": "docs/DATA_AND_REPRODUCTION.md",
+      "bytes": 2960,
+      "sha256": "4d74a4377b8d3ab0dce90c0f81dc9b5044162ffff41cf658ec4e1b368dc92444"
+    },
+    {
+      "path": "docs/EXPERIMENTS.md",
+      "bytes": 2772,
+      "sha256": "1fdaae55dcc5b28d4691f7ff04c6f9d5ad4fae1ea1bfd332d9dea8eb4a59143e"
+    },
+    {
+      "path": "docs/HOSTING.md",
+      "bytes": 3292,
+      "sha256": "56577495b9208855a19e43fa0729362bb111e260c7515d037cd823a90158de2e"
+    },
+    {
+      "path": "docs/PROVENANCE.md",
+      "bytes": 2021,
+      "sha256": "fe9e230bef02c668c5336e6b4d8be0e7a512af9a8e6960f5d6e211603a865bd9"
+    },
+    {
+      "path": "docs/SETUP.md",
+      "bytes": 4144,
+      "sha256": "7e84cff29fb4167ae434c92bb292d0922f32f90abd167d84711fb132d4672fcc"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "bytes": 1913,
+      "sha256": "a32444ef64fe763250d7762890635eaa55ea0b87aa716540fff50302a12ac768"
+    },
+    {
+      "path": "models/README.md",
+      "bytes": 722,
+      "sha256": "e4f1a3052d39a275f70c60b909f27659dd9e2786769db02ce962e5fb889990c0"
+    },
+    {
+      "path": "models/act_v1/analyze_camera_latency.py",
+      "bytes": 1879,
+      "sha256": "843d1da1cf34d761360be5a950e041ddd797717c586a5d1ac742b57f94e829f6"
+    },
+    {
+      "path": "models/act_v1/analyze_finger_ablation.py",
+      "bytes": 3528,
+      "sha256": "8e3eba196d10172bb08f48bdf7e597133079f4c60735f737bb7987dea4f1552d"
+    },
+    {
+      "path": "models/act_v1/analyze_rotation_sequences.py",
+      "bytes": 3938,
+      "sha256": "e64a461e45f9ea6d1f2ed2f7d1f8359f97fa67a873ca59104c4455e265c23efd"
+    },
+    {
+      "path": "models/act_v1/balanced_trial_once_20261004.py",
+      "bytes": 8929,
+      "sha256": "64686430e17e15eb3f480b26383f3b7e5d828b9521778f20485ff0fce4f17a53"
+    },
+    {
+      "path": "models/act_v1/camera_pipeline.py",
+      "bytes": 3515,
+      "sha256": "14c07e038d4092879a70d6a84fe27b7ac53ecd1a169d8a56d2406dba4a2fcee9"
+    },
+    {
+      "path": "models/act_v1/diagnose_closure_feedback.py",
+      "bytes": 4907,
+      "sha256": "8766e5d4208d23afffaa8117b38c86eff452536ee294fff12d1914ea66e1bff7"
+    },
+    {
+      "path": "models/act_v1/diagnose_expert_closure.py",
+      "bytes": 4997,
+      "sha256": "6f15db38212b3a4ad1a44ff8f2ecd2b36f28ae64e9b652e7cc97e0c6b4e33140"
+    },
+    {
+      "path": "models/act_v1/diagnose_finger_ablation.py",
+      "bytes": 6444,
+      "sha256": "2c7684cbace5ce6f4e1a1a930734f3f2fa5e1edd0792e9b219600202e42a0673"
+    },
+    {
+      "path": "models/act_v1/episode_manifest.py",
+      "bytes": 1037,
+      "sha256": "e7cc7599ded5381128b0bede4a6df6912960c03f4d0f930e91415d65ce1af725"
+    },
+    {
+      "path": "models/act_v1/observation_recovery.py",
+      "bytes": 1539,
+      "sha256": "4d9e58f44d6f2425e4ba2ada6ca6928b535a0169872d75668af46384b4e9a621"
+    },
+    {
+      "path": "models/act_v1/plot_closure_feedback.py",
+      "bytes": 2377,
+      "sha256": "7dfc2dadd238285c966722a0c7f56b49c75cb59cba299a5a2b42078032b3e7a1"
+    },
+    {
+      "path": "models/act_v1/plot_expert_closure.py",
+      "bytes": 2745,
+      "sha256": "540316974bdce726bd25e9ce75793bf828665b2006fcf87552a06f6f84a7f930"
+    },
+    {
+      "path": "models/act_v1/replay_temporal_comparison.py",
+      "bytes": 6678,
+      "sha256": "553afe44babd2f14647434c376bb9cf3d8a728cbc636691474d2b5f8de66f771"
+    },
+    {
+      "path": "models/act_v1/rollout_policy_ros.py",
+      "bytes": 20804,
+      "sha256": "0b2ff01b73aefc05b0e4f055a7ebd087c7926c374b35003bb7efa67b27799c1b"
+    },
+    {
+      "path": "models/act_v1/serve_policy.py",
+      "bytes": 3307,
+      "sha256": "42fc44ac7506f6ae25ea1c64fd0e16c88fab8ec1e7a32576675a3342364af741"
+    },
+    {
+      "path": "models/act_v1/summarize_temporal_replay.py",
+      "bytes": 2178,
+      "sha256": "c2fbb317194dfe4d165ee1fe67c8ff0bc0190b19d3f2003f08f748dd9729b538"
+    },
+    {
+      "path": "models/act_v1/test_camera_pipeline.py",
+      "bytes": 7038,
+      "sha256": "ae20859dc39b6e1cb1112f386ba6361a3f2d4e80666cde986032b5bd10172c61"
+    },
+    {
+      "path": "models/act_v1/test_dataset.py",
+      "bytes": 1328,
+      "sha256": "519fdb6ae97b021febf81922f3c96c617319fafb1ad3860e2797fdd14769024f"
+    },
+    {
+      "path": "models/act_v1/test_episode_manifest.py",
+      "bytes": 1251,
+      "sha256": "07024f3abedf04441255859e43440dfac7d9127f0987001bb594f741f0f86db6"
+    },
+    {
+      "path": "models/act_v1/test_observation_recovery.py",
+      "bytes": 1889,
+      "sha256": "d65c48828359a3092edc44f30aa0a23494728182181ecb72d71839357e581053"
+    },
+    {
+      "path": "models/act_v1/train_act.py",
+      "bytes": 14257,
+      "sha256": "49793a72f1bb546d1e63a4155cd252334cf53f443e5ae92c49e8335aeedd4de7"
+    },
+    {
+      "path": "models/act_v1/train_rotation_comparison.py",
+      "bytes": 10612,
+      "sha256": "53dea54493927bcd9e9bbdfed02748bac142226ddc5b46b9703e6d61f2bdf55d"
+    },
+    {
+      "path": "models/baseline_v1/.gitignore",
+      "bytes": 45,
+      "sha256": "be31d483116026b230fc965dcf0cd2fa138e7c617c089f39b96cc2e4c1cd7e16"
+    },
+    {
+      "path": "models/baseline_v1/collect_batch.py",
+      "bytes": 4992,
+      "sha256": "52b82dc3a60440794e6cbafc75dced27c9d1c969894378d551e4bfc1d08963b6"
+    },
+    {
+      "path": "models/baseline_v1/collect_resilient.py",
+      "bytes": 7887,
+      "sha256": "3faacd5576c040bce019b12a449a196262b8a84d8f53fa5d27756847ec6cea10"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/profiles/tasks/baseline_v1/task.yaml",
+      "bytes": 1282,
+      "sha256": "9b316281757eb852159952df1e54f3d53dc06347a808efd8db27ed0204975821"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/scripts/backend11_lifecycle.sh",
+      "bytes": 47142,
+      "sha256": "3f7c2ec689f2b9d5f952a97041b728885c29021af80274ec70e801fc8791cd8a"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/scripts/cup_task.py",
+      "bytes": 37046,
+      "sha256": "505447bd65d4ac04463564b3d6107a981785006eb453884272051b24fa9629fd"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/scripts/diagnose_fingers_bounded.py",
+      "bytes": 2247,
+      "sha256": "b88585f0825196158318a5473893e3814130ce423136f5267b2a3cd50085e4fe"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/scripts/record_collection_smoke.py",
+      "bytes": 9156,
+      "sha256": "fb4efbe5a0bcc7c03f847c29d2f3b68cf0113ba99488376f5c13566344fe72d4"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/scripts/scene_runtime_config.py",
+      "bytes": 1095,
+      "sha256": "7232e645ecb90f6ea3e3cda1f74bf0a6c45066ce7464b0322617287908764ba6"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/scripts/setup_baseline.py",
+      "bytes": 2553,
+      "sha256": "946c2c2d61798503d8283d1b10ce5c66dbf93c992215f9745f4ff54d4ce153e8"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/simulation/launch/run_dual_arm_tabletop_sim.sh",
+      "bytes": 6220,
+      "sha256": "52a90808b40d0b5753914c5a0a97a6be088ea2ab982b32cd918d447562a45e4f"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/simulation/tools/generate_dual_arm_world_from_profiles.py",
+      "bytes": 40836,
+      "sha256": "3f20f8f0d91c09b6c800b0f20841a64ef877dcf5478ef53aef87121a5645317d"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/src/ur_hande_description/urdf/ur_hande.urdf.xacro",
+      "bytes": 16453,
+      "sha256": "dfe69a5a03cb82f15164fac5bdc2041079e8c454037afb9663c5b2bc56e62bbd"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/tests/test_approach_only.py",
+      "bytes": 1154,
+      "sha256": "2381d9ebb13fe37d5189463cf3f3303f4135714fed95bf4822d9b72d082b2778"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/tests/test_grasp_evidence.py",
+      "bytes": 1560,
+      "sha256": "7ad7d444f7cef6aeef0f3cd7ba746f885d82ef263771c357219e778d3843b9b8"
+    },
+    {
+      "path": "models/baseline_v1/source_snapshot/tests/test_slow_grasp.py",
+      "bytes": 808,
+      "sha256": "b3663be98b22e60ffa004801998ec4113094abbb9999d5c7a4e0b78bbd589066"
+    },
+    {
+      "path": "models/baseline_v1/test_resilient.py",
+      "bytes": 3464,
+      "sha256": "e55826d402dd25236f75151e435d39b311b0c12bf91fd7c983cb26b45115b8d1"
+    },
+    {
+      "path": "models/baseline_v1/train.py",
+      "bytes": 6434,
+      "sha256": "07259c22c80ef574db8ce552d10bb34a1964bd7ead99ab29513747a3bacb23fc"
+    },
+    {
+      "path": "models/policy100/analyze_recorded.py",
+      "bytes": 1564,
+      "sha256": "b888dd44a1cfb9c17c77e77b1616fe47659fcd2c8a294c85a9e91aa22fac41e3"
+    },
+    {
+      "path": "models/policy100/assess_hold_generalization.py",
+      "bytes": 2912,
+      "sha256": "6a40edc3cf3576b41045eb8b9748cf670891764da6a9101b80bdbed6ba6cdbf6"
+    },
+    {
+      "path": "models/policy100/audit_calibrated_coverage.py",
+      "bytes": 3053,
+      "sha256": "1c3fe47dc3b74ccd3bae5c3aba689f0712428343cbaad834354300976492b418"
+    },
+    {
+      "path": "models/policy100/audit_joint_aliases.py",
+      "bytes": 2695,
+      "sha256": "457be0276097888dcfc4338f28566407b028a7564f5768d980d38a2ea07e8b63"
+    },
+    {
+      "path": "models/policy100/audit_position_stages12.py",
+      "bytes": 9562,
+      "sha256": "a53abf84326010bbb2998d0c883903419f713122efb7a918e26a6a9d373ffd64"
+    },
+    {
+      "path": "models/policy100/audit_rotation_initiation.py",
+      "bytes": 2754,
+      "sha256": "fb530d630209e57f6e289295259c6a2dd730387954ca5500ac5d211162315382"
+    },
+    {
+      "path": "models/policy100/audit_wrist_learning.py",
+      "bytes": 6181,
+      "sha256": "93c93aa68e2288e5eaef27f63b796e63e83fa13627013ee261e4458e37a40ab3"
+    },
+    {
+      "path": "models/policy100/continue_act100.py",
+      "bytes": 3357,
+      "sha256": "c68f6230d97af1d1d957290a4ca6db4ea1c3ff2edf27b9d3cd94111cf62f26a0"
+    },
+    {
+      "path": "models/policy100/continue_single_position_once.py",
+      "bytes": 16042,
+      "sha256": "dbdc24286c4d7a2f173be5606be149179cd1fa46d128669e34bcda6822530648"
+    },
+    {
+      "path": "models/policy100/diagnose_initial_predictions.py",
+      "bytes": 2982,
+      "sha256": "8ab842608234411bafc216bf6c7e761390477201568e6ffc8bcca9357ce84819"
+    },
+    {
+      "path": "models/policy100/evaluate_routed_feature_once.py",
+      "bytes": 4665,
+      "sha256": "2aade448e789ff889841e9027185f599e5f121edbedc66824f5664d830199d68"
+    },
+    {
+      "path": "models/policy100/evaluate_wrist_candidate.py",
+      "bytes": 6819,
+      "sha256": "fbdff86c02d6bcae97fba9d14ae664015aef5b1508a50be0be8bbc51a6fbd359"
+    },
+    {
+      "path": "models/policy100/finish_calibrated_feature.py",
+      "bytes": 6782,
+      "sha256": "e99289cf2bf3e9f302abd90926620fb45504731ce46d29c2482a2f70b6134615"
+    },
+    {
+      "path": "models/policy100/finish_history_feature.py",
+      "bytes": 192,
+      "sha256": "0ef5192e759588bcdc3e0879408d761e47680886fa98050ce7fb6a1b9c752200"
+    },
+    {
+      "path": "models/policy100/launch_act100_10k.py",
+      "bytes": 786,
+      "sha256": "e0f691f8878618375f6f20eeea0943d888c1f65023fda7da8e82e7fab241358c"
+    },
+    {
+      "path": "models/policy100/launch_once.py",
+      "bytes": 976,
+      "sha256": "0868b8545b108ec47443ac2fdce0dda440126809742e70003d52a901cb0635c2"
+    },
+    {
+      "path": "models/policy100/launch_single_position_continuation.py",
+      "bytes": 1291,
+      "sha256": "a5fd1d5de951a4830a197e03753d6ae2db382edc82ebcf6de1f6920889f97839"
+    },
+    {
+      "path": "models/policy100/launch_single_position_once.py",
+      "bytes": 1265,
+      "sha256": "544226cfc95af63a042bd654498411dca960a063e1254b13356c9d370b39ab78"
+    },
+    {
+      "path": "models/policy100/position_act_contract.py",
+      "bytes": 6482,
+      "sha256": "2ab537fde7cf76ce7d16d91be1c69aee3a21637074f2251c73e5b54a9e237da3"
+    },
+    {
+      "path": "models/policy100/position_dataset.py",
+      "bytes": 2830,
+      "sha256": "4282f7bb2e6ea5648e2a66e913c4e8778466064fbcc97caa3ddd2f1645b30703"
+    },
+    {
+      "path": "models/policy100/position_replay_server.py",
+      "bytes": 3283,
+      "sha256": "666a921d30c804d6c2b03713a8011ec7d6a45dfd2637e39d7558d33cdd4b1d1d"
+    },
+    {
+      "path": "models/policy100/preflight.py",
+      "bytes": 2393,
+      "sha256": "128ac8612399595ef1a418748d1f7e9eb17c9fc0da6c9dbd34b945cb397f12fa"
+    },
+    {
+      "path": "models/policy100/prepare_position_pilot.py",
+      "bytes": 5231,
+      "sha256": "6084d7c7d0c22e14e4bd7ca2f99461d4b31100b82e1eb8bc5e9a3540751c242f"
+    },
+    {
+      "path": "models/policy100/prepare_raw_position_reference.py",
+      "bytes": 2799,
+      "sha256": "a1da2ab461fbb923bccebae9e4edf9c493f87b4e97d92825df9a3417901b97b1"
+    },
+    {
+      "path": "models/policy100/probe_observability.py",
+      "bytes": 6315,
+      "sha256": "2e2b726c55027881c51f5d1863265f196921c0f0c1da60dab88af7e63c98e85a"
+    },
+    {
+      "path": "models/policy100/replay_position_once.py",
+      "bytes": 7096,
+      "sha256": "0c689bc8877f357ac8da0c46a11e90d957ca855d6b2d080f68d4ca5506ba154d"
+    },
+    {
+      "path": "models/policy100/run_recorded_once.py",
+      "bytes": 6598,
+      "sha256": "971b7ce4d7886a2d6373c9e5479b6f70554229202bc983d40c3662fa4927163e"
+    },
+    {
+      "path": "models/policy100/serve_comparison.py",
+      "bytes": 4645,
+      "sha256": "45bea8d52176e9c4b6cc169c4e798a53f26bca7bd7f58797bdcec965f874441d"
+    },
+    {
+      "path": "models/policy100/single_position_metrics.py",
+      "bytes": 3272,
+      "sha256": "755f441648afbaa4b5a05784f81b61b1638bd39d0c7381db07eedd7f7b0e14a8"
+    },
+    {
+      "path": "models/policy100/test_adapter.py",
+      "bytes": 1709,
+      "sha256": "e17a620c04fcec3a9d762339636225b56b809b094fa2f340864448076254272d"
+    },
+    {
+      "path": "models/policy100/test_position_act_contract.py",
+      "bytes": 4637,
+      "sha256": "9e092ba410303f04a176ae5a5a2bf80c2256d48fceade7857a4391a3d7500940"
+    },
+    {
+      "path": "models/policy100/train_calibrated_feature_once.py",
+      "bytes": 10711,
+      "sha256": "9ec7d167e6410879f6c377124142ba6d18524ce2a04f022cc6e209f679d11bba"
+    },
+    {
+      "path": "models/policy100/train_compare.py",
+      "bytes": 18360,
+      "sha256": "56f1e5338cc38c15141beaeeb5dc0e71e848185fb2dc3553d1c2c4ad4b3eb8d0"
+    },
+    {
+      "path": "models/policy100/train_feature_bc_once.py",
+      "bytes": 7273,
+      "sha256": "e6382e40707763d4ac63d82d5e2affc0260e0d030bf4c6f5f97ab7aff0bc7e0f"
+    },
+    {
+      "path": "models/policy100/train_feature_hold_once.py",
+      "bytes": 278,
+      "sha256": "a49bff87c2d19d5093b7e67672420d9b47b165addd2aed5e3be98e4ad5bccade"
+    },
+    {
+      "path": "models/policy100/train_history_feature_once.py",
+      "bytes": 9308,
+      "sha256": "c3762ee12a6e7978b8dc5ceff0e78b63b1181ded4dc23b58c7a3af03297dd4d5"
+    },
+    {
+      "path": "models/policy100/train_single_position_once.py",
+      "bytes": 13776,
+      "sha256": "6e49809958a74d3d0b98259cc218bad41fc15ba2c26e8a75e4246fc8c1bb47db"
+    },
+    {
+      "path": "models/policy100/train_two_stream_once.py",
+      "bytes": 11588,
+      "sha256": "08a6ec4f6336b2f84718509c336195e904ae419453861bc079cabc0f180c19b8"
+    },
+    {
+      "path": "models/policy100/train_wrist_quadratic_once.py",
+      "bytes": 1529,
+      "sha256": "489ae0acadc19d5a244b080beaa1700dcfb1832415e514ea9c174decf0d15064"
+    },
+    {
+      "path": "requirements/training-observed.txt",
+      "bytes": 434,
+      "sha256": "7377df539c10faa88620d11b37d1cb7d8412c9241249fb403da56c883c53202b"
+    },
+    {
+      "path": "ros_backend1.1/.dockerignore",
+      "bytes": 86,
+      "sha256": "7a51c84c42af6f64eb16964eb0121f531f91e973b3ce228a7f69ad1d1ee9bfe1"
+    },
+    {
+      "path": "ros_backend1.1/.env.example",
+      "bytes": 697,
+      "sha256": "10770036567ffcab8bfbcbc90413d70241533aa149ba7b5a8f19d611a0c7fdca"
+    },
+    {
+      "path": "ros_backend1.1/.gitignore",
+      "bytes": 177,
+      "sha256": "b9ae4f333aae016adc9b069f3dbfff61f681cf750046fd171e6a8bda8c81bde4"
+    },
+    {
+      "path": "ros_backend1.1/Dockerfile",
+      "bytes": 1866,
+      "sha256": "3328617b23e7937d0e0c3a863e173a30ad98b9353cc143dd1fd38018ef708deb"
+    },
+    {
+      "path": "ros_backend1.1/docker-compose.gpu.yaml",
+      "bytes": 459,
+      "sha256": "6797ad392200dfeb1c1101d8232c46488b9e204b116578caa851e7542f293582"
+    },
+    {
+      "path": "ros_backend1.1/docker-compose.yaml",
+      "bytes": 1019,
+      "sha256": "bf788f0a3fae1b0fb9527324f8d3027f688c02737556992d4fe7346c49a96220"
+    },
+    {
+      "path": "ros_backend1.1/profiles/active_scene_profile.txt",
+      "bytes": 39,
+      "sha256": "f2b0e76eb2ccb8f9c8ca0f72714cf24b5cfaf73c343e15d950bbe80d87f56437"
+    },
+    {
+      "path": "ros_backend1.1/profiles/controls/quest_dual_arm.yaml",
+      "bytes": 685,
+      "sha256": "b801aff58ebc0035b8cddc0664658977b0df88b5570e94dcb7fc071fcfc0954d"
+    },
+    {
+      "path": "ros_backend1.1/profiles/robots/baseline_v1/robot.yaml",
+      "bytes": 1886,
+      "sha256": "b9cba4858be57582ad87385a76821e2feecb0be538f4a2bcecafba574624d2b0"
+    },
+    {
+      "path": "ros_backend1.1/profiles/robots/ur5e_hande_dual/robot.yaml",
+      "bytes": 1971,
+      "sha256": "1a4db6aa03fa699746ad153cfbb296416d2d20cdddaf90ba0d466d370c3e26e3"
+    },
+    {
+      "path": "ros_backend1.1/profiles/scenes/baseline_v1/scene.yaml",
+      "bytes": 740,
+      "sha256": "b6e4dc4d9f06d06ec39db8c3e7c8edaba7b26397af6fe98b31427e1511ff62b6"
+    },
+    {
+      "path": "ros_backend1.1/profiles/scenes/dual_arm_cable_insertion/scene.yaml",
+      "bytes": 752,
+      "sha256": "6e6f654cc2e1ce36143aeb69ee61a660aa86517d1fd6dacfe52d3dc8ca6b1e60"
+    },
+    {
+      "path": "ros_backend1.1/profiles/scenes/dual_arm_cup_arrangement/scene.yaml",
+      "bytes": 735,
+      "sha256": "b25aa32d575dcf243ef193b91b4998435a8143a6b85c61c1cc088215c7c15bb1"
+    },
+    {
+      "path": "ros_backend1.1/profiles/scenes/dual_arm_rubik_2x2/scene.yaml",
+      "bytes": 733,
+      "sha256": "52a4a6cdbf1f8e298bdbdf4e6171777c9d3718e62eae71050658402adfa63c61"
+    },
+    {
+      "path": "ros_backend1.1/profiles/scenes/dual_arm_tabletop/scene.yaml",
+      "bytes": 733,
+      "sha256": "3767ce893718fa9dc98d4421c14d32acf2990716a0e9f2029ae4be15656eebee"
+    },
+    {
+      "path": "ros_backend1.1/profiles/tasks/baseline_v1/task.yaml",
+      "bytes": 1282,
+      "sha256": "9b316281757eb852159952df1e54f3d53dc06347a808efd8db27ed0204975821"
+    },
+    {
+      "path": "ros_backend1.1/profiles/tasks/cable_insertion/task.yaml",
+      "bytes": 1219,
+      "sha256": "5db40119736b4d334287a76620cd6638455a95c0f4f80e7b4d54d399ee2f4b35"
+    },
+    {
+      "path": "ros_backend1.1/profiles/tasks/cup_arrangement/task.yaml",
+      "bytes": 1083,
+      "sha256": "b733070d27e27d3f9f4f0777a1a3157f3d4c967ab9a3639cf359e1e064993712"
+    },
+    {
+      "path": "ros_backend1.1/profiles/tasks/pick_place_basic/task.yaml",
+      "bytes": 4437,
+      "sha256": "f584e653c866ee8feb42b41c27b290b9f5de3a35ab695af67f5bebd051668696"
+    },
+    {
+      "path": "ros_backend1.1/profiles/tasks/rubik_2x2/task.yaml",
+      "bytes": 1360,
+      "sha256": "0627a9d95c7e43defdbd0d5285c495988eca62f82d7be20924d3cd3212c08477"
+    },
+    {
+      "path": "ros_backend1.1/profiles/workspaces/baseline_v1/workspace.yaml",
+      "bytes": 857,
+      "sha256": "6da4bb95d3588c3dacfa5cca50b0027b9e97bcd377e236d4eed9dd5c1ade909b"
+    },
+    {
+      "path": "ros_backend1.1/profiles/workspaces/dual_arm_tabletop/workspace.yaml",
+      "bytes": 787,
+      "sha256": "c284642527e362b7d0e9f3269d4d3297f5fd52a3f6d20476f4059dadbf96a943"
+    },
+    {
+      "path": "ros_backend1.1/scripts/README.md",
+      "bytes": 502,
+      "sha256": "817d77defc325ed74a929d9fbdbbefeddf17a70cda2507237cc6069e7b71bb6c"
+    },
+    {
+      "path": "ros_backend1.1/scripts/analyze_camera_latency.py",
+      "bytes": 1879,
+      "sha256": "843d1da1cf34d761360be5a950e041ddd797717c586a5d1ac742b57f94e829f6"
+    },
+    {
+      "path": "ros_backend1.1/scripts/backend11_lifecycle.sh",
+      "bytes": 47142,
+      "sha256": "3f7c2ec689f2b9d5f952a97041b728885c29021af80274ec70e801fc8791cd8a"
+    },
+    {
+      "path": "ros_backend1.1/scripts/bump_tcp_port.sh",
+      "bytes": 137,
+      "sha256": "962636010a5e60cc26bef89a81933c90c09b35f46619ecbf8291517822b6d19b"
+    },
+    {
+      "path": "ros_backend1.1/scripts/bump_udp_port.sh",
+      "bytes": 2071,
+      "sha256": "9f19927c6b6e31865fd95ef99afe6dedd1f74fb622a27dcf745fcaf30e2a3a63"
+    },
+    {
+      "path": "ros_backend1.1/scripts/camera_pipeline.py",
+      "bytes": 3515,
+      "sha256": "14c07e038d4092879a70d6a84fe27b7ac53ecd1a169d8a56d2406dba4a2fcee9"
+    },
+    {
+      "path": "ros_backend1.1/scripts/check_posture.py",
+      "bytes": 1524,
+      "sha256": "6222d41c0eb574974371f8ccc97a103aff2d47d6f2ccb36deb44253adf909186"
+    },
+    {
+      "path": "ros_backend1.1/scripts/cup_task.py",
+      "bytes": 37046,
+      "sha256": "505447bd65d4ac04463564b3d6107a981785006eb453884272051b24fa9629fd"
+    },
+    {
+      "path": "ros_backend1.1/scripts/diagnose_fingers_bounded.py",
+      "bytes": 2247,
+      "sha256": "b88585f0825196158318a5473893e3814130ce423136f5267b2a3cd50085e4fe"
+    },
+    {
+      "path": "ros_backend1.1/scripts/encode_rollout.py",
+      "bytes": 1324,
+      "sha256": "742f7df9ac7fd523d7762a56f13052d8ef8c973dcc5129c140a21c9c70273a34"
+    },
+    {
+      "path": "ros_backend1.1/scripts/entrypoint.sh",
+      "bytes": 769,
+      "sha256": "a97a67c8d6300b0f0a7cdcc225e64f43954986a5bd346c3eac8e6f216301eff5"
+    },
+    {
+      "path": "ros_backend1.1/scripts/gpu_viewer.sh",
+      "bytes": 1180,
+      "sha256": "240c11f2a255235c47498b444a1df9eb141525b80ad3e670158fcf9ee9ea2e24"
+    },
+    {
+      "path": "ros_backend1.1/scripts/gz",
+      "bytes": 296,
+      "sha256": "e9d77f4565c54bed34fb2ce512c79430808f5503c06de4cacde918f594c73273"
+    },
+    {
+      "path": "ros_backend1.1/scripts/log_tools/tail_backend_logs.sh",
+      "bytes": 906,
+      "sha256": "777e2b0d8fb18a6e9fb331a1a1b087b68bb87b10e8c1750f99bb6194e2184641"
+    },
+    {
+      "path": "ros_backend1.1/scripts/log_tools/watch_rtf_live.sh",
+      "bytes": 3080,
+      "sha256": "dd747f433c775b72b71eefc1fd0db9b74833df857a14d1c95b9044909963b1be"
+    },
+    {
+      "path": "ros_backend1.1/scripts/log_tools/watch_topic_rates.sh",
+      "bytes": 716,
+      "sha256": "06a3ef689ca0355061d62a8a795146a7c08d77651ef5a0847f57c1ab64f090a0"
+    },
+    {
+      "path": "ros_backend1.1/scripts/observation_recovery.py",
+      "bytes": 1539,
+      "sha256": "4d9e58f44d6f2425e4ba2ada6ca6928b535a0169872d75668af46384b4e9a621"
+    },
+    {
+      "path": "ros_backend1.1/scripts/randomize_cups.sh",
+      "bytes": 119,
+      "sha256": "1d646575e4b4290938aeed3f8d7ff86e9fc8883ad3c630f26e4bdb26189b08b4"
+    },
+    {
+      "path": "ros_backend1.1/scripts/record_collection_smoke.py",
+      "bytes": 9156,
+      "sha256": "fb4efbe5a0bcc7c03f847c29d2f3b68cf0113ba99488376f5c13566344fe72d4"
+    },
+    {
+      "path": "ros_backend1.1/scripts/rollout_policy_ros.py",
+      "bytes": 20804,
+      "sha256": "0b2ff01b73aefc05b0e4f055a7ebd087c7926c374b35003bb7efa67b27799c1b"
+    },
+    {
+      "path": "ros_backend1.1/scripts/scene_runtime_config.py",
+      "bytes": 1095,
+      "sha256": "7232e645ecb90f6ea3e3cda1f74bf0a6c45066ce7464b0322617287908764ba6"
+    },
+    {
+      "path": "ros_backend1.1/scripts/setup_baseline.py",
+      "bytes": 2391,
+      "sha256": "4e883b7e656578abec9ece36c23d09f5ce92bfbf21cefdf02e53100a51fdf217"
+    },
+    {
+      "path": "ros_backend1.1/scripts/start_desktop.sh",
+      "bytes": 2117,
+      "sha256": "8038b8d5486068d091709c1db0bc343d9fdf276887f104db1f3287dc6484a209"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_fingers.py",
+      "bytes": 1268,
+      "sha256": "44ae4ad3d289b1059a8bf26f6d2ff891ed7438d9fd37aa55bf497e299942b1b0"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/01_backend_rtf_cpu_monitor.py",
+      "bytes": 5574,
+      "sha256": "6e152124a0abbd4d4073c6c59dbf38641a21ebc4d563a9f8f4d8cd77cfd5565e"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/02_headless_vs_headed_comparison.py",
+      "bytes": 2589,
+      "sha256": "0684ed4d25e28d65a0498d74bea67f00e911f33c34da478d0445938ab10a84cd"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/03_ros_topic_rate_audit.py",
+      "bytes": 3964,
+      "sha256": "1e295435a395d3f09593e99c9cdcc085f37793aefeb033eb436aa58f7816dabd"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/04_synthetic_hand_receiver_test.py",
+      "bytes": 2763,
+      "sha256": "5b362ac11726de5a764d7716b3451b5c5024ff501252f46c6799fd353423357f"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/05_servo_step_sine_response_test.py",
+      "bytes": 1649,
+      "sha256": "90566ccc09ff0c9960443aab386ffc7d6821116e5cea44099ece33d282ba4716"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/06_mapping_axis_sign_sanity_test.py",
+      "bytes": 2243,
+      "sha256": "8cb02c2ae4b42cd6d5eb2fdc4ef32e675b2b75f51b3e39abece2ffac59034e0b"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/07_gripper_timing_symmetry_test.py",
+      "bytes": 3473,
+      "sha256": "cf763ccd76417e958ff5a3af10da217fd086dfa091e11f46c05aec1bd99ae484"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/08_reset_reliability_test.py",
+      "bytes": 7415,
+      "sha256": "20f9b69533d2db41dcbe44370030c94a38c0e90d838ede4a5d49c314a4bd81cf"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/09_task_profile_sdf_unity_consistency_test.py",
+      "bytes": 4909,
+      "sha256": "7b34b244d99beb167b88ab1e7dcb21308880eaecca935d60b80837fd8ae5418d"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/10_unity_editor_sync_smoke.py",
+      "bytes": 3057,
+      "sha256": "dfab8d12f5f97227d72170a069cadc65b1fa8f96d5dc80f51ed79b4db772d9a9"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/11_haptic_publisher_topic_logic_test.py",
+      "bytes": 3932,
+      "sha256": "cfc2ba2c5b3231dba5bbd612ed1f1ef4b89414d643574a5c3f115a7da9147d05"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/12_cross_platform_backend_bringup_check.py",
+      "bytes": 2709,
+      "sha256": "af2c12f44da71a84ac538d6e7af7a3ea62f3b2ee09937c1dd87be8bf2dc6f34c"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/13_dynamic_novnc_headed_performance_test.py",
+      "bytes": 23298,
+      "sha256": "c5bc79ec21c598b2584344ce1e9e6451efc098f2957e9c438a6003ed714bc4e0"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/14_headset_backend_latency_trace.py",
+      "bytes": 12701,
+      "sha256": "fa187a7aea89dfd17a1747224640be8591de3fd9a154c27d528f3bf0a2569fc5"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/15_mr_sync_visual_latency_trace.py",
+      "bytes": 24125,
+      "sha256": "35b9703891e8dd10289e1f2073909a1560ab60488e9da67fee873b690a54bf46"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/16_recording_fps_sync_latency_trace.py",
+      "bytes": 27861,
+      "sha256": "946f95c17966d8afbdad3797d1c605848da79c32a284a144186ef573b965dc2d"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/README.md",
+      "bytes": 10082,
+      "sha256": "9c1549ba1b2041a345e0dfd642287f977ad137c67552628616359ad62e82a301"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/eval_scripts/eval_common.py",
+      "bytes": 6839,
+      "sha256": "d9e4336b63aa9a4eb075c7f49fb4ccf04fa4298150759b777f1c152e50dc3f72"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/performance_test_scripts/README.md",
+      "bytes": 2892,
+      "sha256": "d91772ab0885f60eb227645b564b02f187b2bae5e1d7b55221ca05e578057301"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/performance_test_scripts/merge_cross_platform_performance.py",
+      "bytes": 3112,
+      "sha256": "647923b47d332b854651201bce2af4b3c8677c759ce99a070b1f5e8263cce0e4"
+    },
+    {
+      "path": "ros_backend1.1/scripts/test_tools/performance_test_scripts/run_dynamic_backend_performance_linux.sh",
+      "bytes": 895,
+      "sha256": "e4eb4cf73be1f5f1cde77535b48c865957adc77f8608b28ab12b786a475eb754"
+    },
+    {
+      "path": "ros_backend1.1/scripts/validate_gripper_camera.py",
+      "bytes": 3732,
+      "sha256": "c743a9b3705e7a3c04e841392babc34a83fcc68b49f03de250525055673858ad"
+    },
+    {
+      "path": "ros_backend1.1/scripts/validate_posture_ik.py",
+      "bytes": 1620,
+      "sha256": "ee06ff7f05a1d10a7cca4afccb3198a3255141471dc31449e60e6ab0d70042b2"
+    },
+    {
+      "path": "ros_backend1.1/scripts/verify_cups.py",
+      "bytes": 2438,
+      "sha256": "6d84279990295033ae7dfce8604168c350852713ad126bcee543126580514165"
+    },
+    {
+      "path": "ros_backend1.1/simulation/config/gpu_viewer.config",
+      "bytes": 1663,
+      "sha256": "625cc47290f5d037f8796a3963d643d95e8694b0ac422f41de33bfe1fd4132c3"
+    },
+    {
+      "path": "ros_backend1.1/simulation/config/ur5e_gz_controllers.yaml",
+      "bytes": 1024,
+      "sha256": "ae8d8c376683aa6080ee6bbe5bc170f4ae85b02ed6f193797c6cf85c9da1555e"
+    },
+    {
+      "path": "ros_backend1.1/simulation/config/ur5e_gz_controllers_left.yaml",
+      "bytes": 1136,
+      "sha256": "3a15983a85029ba461644d7c8954c82119fa98466ff7f14a801de32a0bd25f73"
+    },
+    {
+      "path": "ros_backend1.1/simulation/config/ur5e_gz_controllers_right.yaml",
+      "bytes": 1159,
+      "sha256": "87900ced32ca54a366db22b7adaa69c2d3c3301bea924f098c9417aa32051663"
+    },
+    {
+      "path": "ros_backend1.1/simulation/launch/check_tabletop_rtf.sh",
+      "bytes": 380,
+      "sha256": "57a7bc56705fd014a1fe5c00c4871080dbac4412fb6f67ad8a9b7d1c5d0833a2"
+    },
+    {
+      "path": "ros_backend1.1/simulation/launch/run_dual_arm_tabletop_sim.sh",
+      "bytes": 6304,
+      "sha256": "2ea5573e1da0de82f2ab152eac92fa7c705473282b2c68e4d07c156d5ad83906"
+    },
+    {
+      "path": "ros_backend1.1/simulation/launch/run_tabletop_sim.sh",
+      "bytes": 3034,
+      "sha256": "f2c1326f22e1b631d2884d953d21e57460f78d44519ac33a1badfc5ea8b5cc22"
+    },
+    {
+      "path": "ros_backend1.1/simulation/tools/cup_layout.py",
+      "bytes": 1280,
+      "sha256": "64abc18162a3e6480b3bb0a8ebb7998ca80ce0a68d43549c01e3fe15ef04379b"
+    },
+    {
+      "path": "ros_backend1.1/simulation/tools/generate_dual_arm_world_from_profiles.py",
+      "bytes": 40836,
+      "sha256": "3f20f8f0d91c09b6c800b0f20841a64ef877dcf5478ef53aef87121a5645317d"
+    },
+    {
+      "path": "ros_backend1.1/simulation/worlds/ur_hande_tabletop.sdf",
+      "bytes": 9123,
+      "sha256": "e19298ef99d133b6b25eafbf0e876dca6be6fc9b15aaabd96dde10c0cfca73ce"
+    },
+    {
+      "path": "ros_backend1.1/src/README.md",
+      "bytes": 2200,
+      "sha256": "1e7c412a1014663c8c0cdf99a78830fbe1c6b3c4d419f0d1531f9370b5312a26"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/.gitignore",
+      "bytes": 61,
+      "sha256": "98e86f9cb1d1aff3638e1b9d3c1565d44daacb67c2dfc81158c3bd1503f1b2fc"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/.pre-commit-config.yaml",
+      "bytes": 313,
+      "sha256": "bd7931192c7f515800a39fad783015ead2daf539701bad56c43a58257750475e"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/CHANGELOG.md",
+      "bytes": 1936,
+      "sha256": "38af8d6978e03f1deb0d8bb99ad8a59c2a088bd4e7484fe7f5660497a665760b"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/CODE_OF_CONDUCT.md",
+      "bytes": 3232,
+      "sha256": "e637fe971e20b34f8f09617e0215ecbbcab6209a3d16bd3ed9d9d519ae434704"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/CONTRIBUTING.md",
+      "bytes": 2947,
+      "sha256": "897d9268e49dc2730ae7dc83fe84ffb617e0b8786a6bc757bf09e1aad9ce54fc"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/LICENSE",
+      "bytes": 10763,
+      "sha256": "b985eb92333b08a685ad5c0ce3a361ba4e2882880e5607312a5677c97ecc4b05"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/README.md",
+      "bytes": 1549,
+      "sha256": "865afba639c1ed5db4ba7c9442b020efef754e4791ebfdbe7dbdc789494cc87f"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/launch/endpoint.py",
+      "bytes": 407,
+      "sha256": "b49d2155c6f3989af1c084b8b4a0225a1160ee531031687bcca17d9857ad2feb"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/package.xml",
+      "bytes": 746,
+      "sha256": "eb2263ddcf71337f11db9f9e7782ad65873c7ff589394d7bc2e123460b542986"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/requirements.txt",
+      "bytes": 27,
+      "sha256": "059c2d37b4f26c437b2734e4f17cac0a4447515be74fcf0cb08c56070e9f31ad"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/__init__.py",
+      "bytes": 623,
+      "sha256": "91df7b4911bec6b93ef86e714db928880cdb0a50f678ca060ca24080cf87cc2d"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/client.py",
+      "bytes": 8488,
+      "sha256": "b0ac19c5d7137d48cdf13f9e1ebcc1c3850b2217fa626ff81867241c0b5bdab9"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/communication.py",
+      "bytes": 1186,
+      "sha256": "001560af311014edb0ea283202df1bd76e6652407084aac03fa95744698379f7"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/default_server_endpoint.py",
+      "bytes": 319,
+      "sha256": "79f097e223ac3c6d2db6bd48a96bc07df73649d994c2697fd08ce0a41cd1bc1b"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/exceptions.py",
+      "bytes": 870,
+      "sha256": "11b9e9cb79ef338651cce71a01f43dcbaedf69dbb549e1c2ca666655bf47fb89"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/publisher.py",
+      "bytes": 2123,
+      "sha256": "4cbee08725dcb9b8ca499e37fe08a0f8191dd70e1d566f9c1783a65a18852ce8"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/server.py",
+      "bytes": 12882,
+      "sha256": "1f8f2e8fcae82ddb1baf35ec021a0a463c6d28f5a45b60eede86f7fd283fd078"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/service.py",
+      "bytes": 2535,
+      "sha256": "3c5846d73e15cda5728029f98c6506052d127f6031b5341de994c3a608c69e90"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/subscriber.py",
+      "bytes": 2264,
+      "sha256": "426a709c6ab5f7e1aefc0123ddec360b840ee6a5aa0563ffb70bf49cc5a25a1e"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/tcp_sender.py",
+      "bytes": 8679,
+      "sha256": "4b80d6293124607c4b4626de06f306f82f9d9e4e75c14f12c8ed2dd9a7535949"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/thread_pauser.py",
+      "bytes": 372,
+      "sha256": "70725da7ed2acb34e27f1861d20285fb2287abcef620ee5c2fafc07b7d528001"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/ros_tcp_endpoint/unity_service.py",
+      "bytes": 2016,
+      "sha256": "698217f3e9a672674ca4ac0acd5363de275b640f85c19b4e355454c060879d21"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/setup.cfg",
+      "bytes": 101,
+      "sha256": "da4b294a7bc1e35828a309cb9d3858157c8377e0c0b5a072ec26742a2c4083e1"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/setup.py",
+      "bytes": 838,
+      "sha256": "010848870f949be42af4b7acde54c845daa6e188866a2551898707aed3eb7c89"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/test/test_copyright.py",
+      "bytes": 830,
+      "sha256": "8eaa812742516cf50879903b464817cf1b2aa0fad58ed1d3cee89c9d22bdfdf2"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/test/test_flake8.py",
+      "bytes": 875,
+      "sha256": "e790fe077d87157c826b872ff83d49a229899d0b1730935932ba7821c5664768"
+    },
+    {
+      "path": "ros_backend1.1/src/ROS-TCP-Endpoint/test/test_pep257.py",
+      "bytes": 814,
+      "sha256": "25c7864790bd41edfcd00211628edf237e4abf632847c54edfa3573775dcb838"
+    },
+    {
+      "path": "ros_backend1.1/src/receiver/package.xml",
+      "bytes": 727,
+      "sha256": "26cda84749e937e7d3d6cbdd28189933f08b987b023b70589d097216d1bec2ac"
+    },
+    {
+      "path": "ros_backend1.1/src/receiver/receiver/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/receiver/receiver/quest_controller_receiver.py",
+      "bytes": 28487,
+      "sha256": "0bc7fce51f1a1b5650feef2679b2bf03c78dc14f2d3c731be3709374133ce375"
+    },
+    {
+      "path": "ros_backend1.1/src/receiver/setup.cfg",
+      "bytes": 85,
+      "sha256": "036059b2c3c1abf9de7d951351eaa101d0808a4b73f747ca0fb612dfd4d9e2f9"
+    },
+    {
+      "path": "ros_backend1.1/src/receiver/setup.py",
+      "bytes": 691,
+      "sha256": "cd0f62bd967db4431f74e07ab78975d7c53b8d2961c2097ad1935af09a33c1c9"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/.gitignore",
+      "bytes": 7,
+      "sha256": "181314065df2f2fdaf920b1a8b5311daa216a2d6489a06ada5b49cc514d89417"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/.pre-commit-config.yaml",
+      "bytes": 865,
+      "sha256": "2fe44fe63a3ece1baf5c918c0050d31e6eed303432a3b614b87503f5d4f11dc3"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/CHANGELOG.md",
+      "bytes": 1695,
+      "sha256": "a3a80a3c5096ae6cee3eff1c0fb851ff71b97cd11f8a4a2872cabb273f857112"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/CITATION.cff",
+      "bytes": 500,
+      "sha256": "6253035345545388e3e53c063a7feb2f5c840e660044a5f40ad088e095400cf3"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/CMakeLists.txt",
+      "bytes": 251,
+      "sha256": "ed7c95fd472db50643de923feb8d9b22330f0b888437a8c22b824de896e854ca"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/LICENSE",
+      "bytes": 10274,
+      "sha256": "3d2fa5e03b0a1caac6083b64ec7ed71c263b0021742a29774e79e63562acf509"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/README.md",
+      "bytes": 3375,
+      "sha256": "80397cb93aafea26b4e62a37a0238fc2ebd4b542daa6e1979edfa863a7d4dfcf"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/docs/hande_rviz.gif",
+      "bytes": 3007428,
+      "sha256": "4e0d2c6426710a0dac1169c35fc2c6df2e0fe02810d58c39cb4d2955fe059bb4"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/launch/display.launch.py",
+      "bytes": 928,
+      "sha256": "e7b7b64ed30ddc171337d8d259ea4c76194361ab0c273d460d7fc1db49b3dd82"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/meshes/finger.dae",
+      "bytes": 480348,
+      "sha256": "2e46fbe8009e78322e5649db7d0483ca8f4abbaff099929036b31f10b2b36e97"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/meshes/finger_collision.dae",
+      "bytes": 7419,
+      "sha256": "144f0c4e86b358c3de5fcf50484592ce0be13bd3257eb808e7cb8dc944fbb2aa"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/meshes/hande.dae",
+      "bytes": 4875997,
+      "sha256": "5d5ed4d659d3e7196c0e7d22fc3ebe759d4f87641094cb558122960c5d867358"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/meshes/io_coupler.dae",
+      "bytes": 9092287,
+      "sha256": "fb079afc378f772744ed791f704876c0962b3b8d351c67af62399bcf295e0c68"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/package.xml",
+      "bytes": 708,
+      "sha256": "c73458d376552a91dd0d0db21dfc89a976ea35787c505aa1aa97736f9c9ae372"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/rviz/urdf.rviz",
+      "bytes": 3932,
+      "sha256": "52c05439762de8c0040c62ecf36fe35081950e643bb577c246dceec15d25aca1"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/urdf/cylinder_inertial.xacro",
+      "bytes": 574,
+      "sha256": "071a287b7231e6a570afc7c4b861e821aa20f68245b6f747a63932c335bdda5c"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/urdf/robotiq_hande_gripper.ros2_control.xacro",
+      "bytes": 3409,
+      "sha256": "80feee024c54709004ed0b251111d30d9f4772d1f5a7b5e4c3a73ee9ae15c6cf"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/urdf/robotiq_hande_gripper.urdf.xacro",
+      "bytes": 1509,
+      "sha256": "5e3100d7e06d98b5b1f53a615c6364c35561e87a4f7118dee6c41132a9f2bdee"
+    },
+    {
+      "path": "ros_backend1.1/src/robotiq_hande_description/urdf/robotiq_hande_gripper.xacro",
+      "bytes": 7728,
+      "sha256": "4ce58f69bc2e7f54b2458df05b8a0f975b5ecf1caade78c3aa85c93607f2e9f8"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/config/initial_positions.yaml",
+      "bytes": 132,
+      "sha256": "614dd6c64e3bde9a39299b74a31759225cc0b7ecbe8f26a72fdc9459e783f487"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/config/servo.yaml",
+      "bytes": 870,
+      "sha256": "ed0b4184591e8c85b490073464bd1b9dffa6478576e29b4a5f37805e5cd7f95d"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/config/servo_gz.yaml",
+      "bytes": 1594,
+      "sha256": "6efa2917ef17a8da0b040361740b6f7812df6abf969ff4c2ac170bc8b2916bb7"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/launch/self_collision_inspector_dual.launch.py",
+      "bytes": 3500,
+      "sha256": "c3e8d4ef01ae99dc5da0e3552235dbb9f553eb28372432419c29b6b9f6e0f17c"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/launch/servo_dual_gz.launch.py",
+      "bytes": 6723,
+      "sha256": "4808ec74f5b236236acd4e28a960c9b6d0043a65adcc72e6db1aaa962bfad172"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/launch/servo_gz.launch.py",
+      "bytes": 4150,
+      "sha256": "4377e81b7353daeeb319a40541bee7f6450c027608e8646cd93cdf291d380828"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/launch/servo_test.launch.py",
+      "bytes": 4026,
+      "sha256": "f3a38d30e2461117462cca2c86e67ffd4bdfe199cf185235c0eac4f5b5dbef33"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/package.xml",
+      "bytes": 837,
+      "sha256": "fa77c387e6162dd3b7d0a6dac470f8f66f5c00ee7607da797a099e985f15b452"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/servo_test_config/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/servo_test_config/joint_states_filter.py",
+      "bytes": 2603,
+      "sha256": "f823cd0bd3a3498a29a28313a2d1ab09c3601ee56d16af139af767dc447e5e43"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/setup.cfg",
+      "bytes": 104,
+      "sha256": "4fb97d700f78a5d5fc6fd1abf2b995920ba5688e0526c8e084201d570182795c"
+    },
+    {
+      "path": "ros_backend1.1/src/servo_test_config/setup.py",
+      "bytes": 866,
+      "sha256": "61a143e00ba4e102c28255a1bebd450b7813439016246b1999c703b158537bc0"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/README.md",
+      "bytes": 2969,
+      "sha256": "7eb229d1c981be05720ac5c49185c164a67ef1e1e1decd17c636a8b1e365e340"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/config/teleop_tuning.yaml",
+      "bytes": 4201,
+      "sha256": "1379703bd5bd59b035980b71d0728628fce91b4441c4a773a4923ccc9e0bf015"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/config/teleop_tuning_dual_left.yaml",
+      "bytes": 5092,
+      "sha256": "92b91d00708c6209494d89d915cdd0e8aebfeb1066921a4f4f0217511f49fcc7"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/config/teleop_tuning_dual_right.yaml",
+      "bytes": 5055,
+      "sha256": "851ab0d2614b4da169a8846d69441921a451c1f9210da611aced5bd03d2607cf"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/package.xml",
+      "bytes": 955,
+      "sha256": "b14c62f9c531f2489169d8a1fc2dbe38817b0f55b36ae8e088d5af2529c83ad5"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/setup.cfg",
+      "bytes": 96,
+      "sha256": "ed7e58877a8eb046896bc34095f0ad48916eabdb2d157feabaf5e11632037401"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/setup.py",
+      "bytes": 3300,
+      "sha256": "98d1de7ee1d64e88449d9e69c1cdb0a84e7cbaabbeb486d4c806e278026aa57c"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/common/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/common/scene_layout.py",
+      "bytes": 2920,
+      "sha256": "8fe1e3bd9aaea20e88290207489edee601339e05315a98200736edf23d58382e"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/gripper_control/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/gripper_control/coupled_gripper_controller.py",
+      "bytes": 9802,
+      "sha256": "87f77869c4ad6da3668885460f84ff4553e0a8ad6d53dd91564a100da001c61c"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/gripper_control/simple_gripper_command_bridge.py",
+      "bytes": 10189,
+      "sha256": "caed714ae84c2c273054a65684a1da01117bf7c5868f14c571c935dd901e49e1"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/haptic_feedback/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/haptic_feedback/contact_haptic_publisher.py",
+      "bytes": 29778,
+      "sha256": "02b749b28c0f97c7ebfda98a0efea6f5bd882b2175f117a34e9e1b81b4d5abba"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/mapping/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/mapping/hand_pose_mapper.py",
+      "bytes": 78241,
+      "sha256": "5c83289c280119ebbfa0f37ba773d0dc9014afdbf4b6f7337de4865057bf6931"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/reset_control/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/reset_control/reset_manager.py",
+      "bytes": 42588,
+      "sha256": "f4091a5f35dd4f8346e64a824917cb63b6bbccf7ec7bae9a10358cdd32f87679"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/servo_bridge/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/servo_bridge/keyboard_servo_override.py",
+      "bytes": 12392,
+      "sha256": "14d9c1f77a06aca726f66bb22c59b17998f10a5d19c7b836a62662169e243ab5"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/servo_bridge/servo_command_bridge.py",
+      "bytes": 8383,
+      "sha256": "167452e72b9a4f891094f92f9d897009281ba50446a5192de25aab6e4f371a7a"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/task_sync/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/task_sync/rubik_task_controller.py",
+      "bytes": 9760,
+      "sha256": "d5d54727db9508c14be16a0596019bebb0f5d4214275af024106d55d849e174a"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/task_sync/runtime_task_manager.py",
+      "bytes": 20182,
+      "sha256": "09427d6dc6a323d3ee3968f11bb86cb66cba6ca2fe716907d44e7f9229593db7"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/task_sync/task_pose_sync_publisher.py",
+      "bytes": 14861,
+      "sha256": "7191f08c61180ec43e33d2c324b2273943d71f1df7b219e7e24d1336bdff7a4e"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/test_tools/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/test_tools/debug_hand_generator.py",
+      "bytes": 8975,
+      "sha256": "e4194ce333ed73f90180705039ea77cfb17a6614d4f665389ffec296033232a8"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/test_tools/fake_hand_publisher.py",
+      "bytes": 5189,
+      "sha256": "aefe0f9d669f1bcc6d3eaa705c08bd0e5b8013288bfe6d3afbdc8339ca8d40af"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/test_tools/servo_response_sampler.py",
+      "bytes": 5169,
+      "sha256": "202c55da1496ddadd1cbe1d46bb2a4361d941ea6f143ba4715feac06e4c4f81c"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge/teleop_bridge/test_tools/test_joints.py",
+      "bytes": 1891,
+      "sha256": "2ffa83e8736d5b134645eaa72175a4996ecb25ba6c34800ff64b67396ec539b3"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge_msgs/CMakeLists.txt",
+      "bytes": 430,
+      "sha256": "a5dc0657c9ed18db412e53f11e83dbbe0b4af2816f17e047ad8806da10254713"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge_msgs/msg/ReceivedPoseStates.msg",
+      "bytes": 655,
+      "sha256": "d07935306777b4d2fc0e7351ce58d1e9fa7d380dd0d8be00ad80769d8ae97728"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge_msgs/msg/TargetTwistStates.msg",
+      "bytes": 164,
+      "sha256": "82ed07ab8f27f803139cc51d9eb15751048ba79e32912a47568c7d3f5c9d63be"
+    },
+    {
+      "path": "ros_backend1.1/src/teleop_bridge_msgs/package.xml",
+      "bytes": 747,
+      "sha256": "3197b2b216c2ece751621b0f299de8eaa6fde3f94a2d7e91a24a0d6aada0083a"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/CMakeLists.txt",
+      "bytes": 196,
+      "sha256": "158710371fdd024f4c81780f490a4335f1fda641ccb9f575b1550daa7a43a185"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/initial_positions.yaml",
+      "bytes": 127,
+      "sha256": "980417d3805afbc071d0f5bc021f44b7e2a205c0b36d3941f7c21a5358ecb4e2"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/initial_positions_right_180.yaml",
+      "bytes": 127,
+      "sha256": "980417d3805afbc071d0f5bc021f44b7e2a205c0b36d3941f7c21a5358ecb4e2"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10/default_kinematics.yaml",
+      "bytes": 638,
+      "sha256": "efc60b796682f31b350a30884c01137b743786e4d1d077a7d7958b4483b7f6c1"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10/joint_limits.yaml",
+      "bytes": 2870,
+      "sha256": "9ebaa1369cf430da76683c38d0cafb101aa27b33997454a3c510046e8aa8a50c"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10/physical_parameters.yaml",
+      "bytes": 2513,
+      "sha256": "6041455f82803a99f8806beb32eef4a6bb82d11e86705918ff6a4c622b699110"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10/visual_parameters.yaml",
+      "bytes": 2184,
+      "sha256": "877144b2a5cbc18bc2e46ac16f521bfa21fb8f8496e2c77071cd96c621d26f78"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10e/default_kinematics.yaml",
+      "bytes": 640,
+      "sha256": "4bf9a0dfdeb73d7a8b43171fd8a2cedffa9eaf6e342857df44229380e4ad2e49"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10e/joint_limits.yaml",
+      "bytes": 2871,
+      "sha256": "de6b27680ef8ca8930d1902fc6869f49b9295dabbb40048eaa538f9d4796bc4b"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10e/physical_parameters.yaml",
+      "bytes": 2642,
+      "sha256": "8cd32e5a38bcef6c6de59556e752bc2cc05ffe4247019d9591d6a9474eb27928"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur10e/visual_parameters.yaml",
+      "bytes": 2195,
+      "sha256": "09ff7b9466ecf1ac7598a513be9c0e4ea87ceb6d7cc9296520e0bc3d0998020a"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur12e/default_kinematics.yaml",
+      "bytes": 640,
+      "sha256": "4bf9a0dfdeb73d7a8b43171fd8a2cedffa9eaf6e342857df44229380e4ad2e49"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur12e/joint_limits.yaml",
+      "bytes": 2871,
+      "sha256": "de6b27680ef8ca8930d1902fc6869f49b9295dabbb40048eaa538f9d4796bc4b"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur12e/physical_parameters.yaml",
+      "bytes": 2642,
+      "sha256": "8cd32e5a38bcef6c6de59556e752bc2cc05ffe4247019d9591d6a9474eb27928"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur12e/visual_parameters.yaml",
+      "bytes": 2195,
+      "sha256": "09ff7b9466ecf1ac7598a513be9c0e4ea87ceb6d7cc9296520e0bc3d0998020a"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur15/default_kinematics.yaml",
+      "bytes": 701,
+      "sha256": "5f3d566874194178e7aa153a99b622ca7c19f18866a8379d0ac3ccf4706aed8f"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur15/joint_limits.yaml",
+      "bytes": 2490,
+      "sha256": "9f7d3294303f0bea7ed368f7d56eda27a59e088646527f3b792bdfe047780cfa"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur15/physical_parameters.yaml",
+      "bytes": 2835,
+      "sha256": "076ebd23abc34978531ea848f97e73f9f405418b1f1789595e254eac652b7660"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur15/visual_parameters.yaml",
+      "bytes": 1658,
+      "sha256": "59edaa847e8a3b50c172b901cf4ad327660690c7941f69107254ef6f6cc22892"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur16e/default_kinematics.yaml",
+      "bytes": 637,
+      "sha256": "20fb7f133426c7182d0eee6442d4cbad4cc733fa9ce2ef1924620961c44c1d81"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur16e/joint_limits.yaml",
+      "bytes": 2871,
+      "sha256": "05d9279f87942504c1d7af4be1c9d30ac447c18f98be2f57307565c519182e3d"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur16e/physical_parameters.yaml",
+      "bytes": 2869,
+      "sha256": "aab905394d0038e573ce6db39fa8cd18c23caae2124daab021cabd12bfb302d3"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur16e/visual_parameters.yaml",
+      "bytes": 2277,
+      "sha256": "1fcb87b6bc451e6838a40aba5576f3f2ec355c8b99f1ce13cc2ce8051512c51c"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur18/default_kinematics.yaml",
+      "bytes": 699,
+      "sha256": "72a628a5ae0cd2ccdac49d881d69bd7ad233c7593e6575654022e93bde65a510"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur18/joint_limits.yaml",
+      "bytes": 2490,
+      "sha256": "9f7d3294303f0bea7ed368f7d56eda27a59e088646527f3b792bdfe047780cfa"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur18/physical_parameters.yaml",
+      "bytes": 2832,
+      "sha256": "881bd2b71abd1ad0e1192e8360a1bf2a423a943e1f938902f7b6e039ef3baea5"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur18/visual_parameters.yaml",
+      "bytes": 1640,
+      "sha256": "a098529178aecf72c1134d8c73bcb893e628d8a084c75280738e8181e8070a8b"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur20/default_kinematics.yaml",
+      "bytes": 714,
+      "sha256": "2328a839f0cbf3e55aa420110f1f708f64f37e7f65b5d6b8994eb4860b5991bb"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur20/joint_limits.yaml",
+      "bytes": 2689,
+      "sha256": "ba2be7ecf42ee235d83aa572ca3743532c45577affef0d75b65d9f0cd40aed66"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur20/physical_parameters.yaml",
+      "bytes": 2651,
+      "sha256": "c6fe550ad20d1025041c5c375051506c298d073b55b70c871bb319fcb66f1b35"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur20/visual_parameters.yaml",
+      "bytes": 2182,
+      "sha256": "719b0b0ce3d30c81dabe845ce34458f27d98a3673e910dfce91689d366a7da8f"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3/default_kinematics.yaml",
+      "bytes": 640,
+      "sha256": "62ccae1768678cfddaee8e2a1b621365d7ac8a58b4a7607aed680ed572c8a423"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3/joint_limits.yaml",
+      "bytes": 2797,
+      "sha256": "3ca03a6b107fab1d20a18a4e3a967ed0f14de228208a95c4735a6c966ea18534"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3/physical_parameters.yaml",
+      "bytes": 2750,
+      "sha256": "45ab62cfa834874f8a3ed4b23b5df5e3258629c6a218b0cc39de67cda2138388"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3/visual_parameters.yaml",
+      "bytes": 2193,
+      "sha256": "97f8c4264d33febd0c998983b58a8f83039c01dd58634aa845ceb1fb3749603e"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur30/default_kinematics.yaml",
+      "bytes": 715,
+      "sha256": "744f2e8e0c1a352aab29061f9c104927444854fe8f5958f0738f98242fce09fe"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur30/joint_limits.yaml",
+      "bytes": 2689,
+      "sha256": "ba2be7ecf42ee235d83aa572ca3743532c45577affef0d75b65d9f0cd40aed66"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur30/physical_parameters.yaml",
+      "bytes": 2639,
+      "sha256": "470a92d5cc7758bf0b66db224f480c6f494ab67409a18d16dbfec292a5dd2aa7"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur30/visual_parameters.yaml",
+      "bytes": 2182,
+      "sha256": "d5702c38df3b92d614be119c3be507cf88a0591448d7a93a6330137d2783c92f"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3e/default_kinematics.yaml",
+      "bytes": 639,
+      "sha256": "c0bfd5cb5bafd9df090a71a914bbeb8812a1a3b07f03fb930d6f8fa38fff9de7"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3e/joint_limits.yaml",
+      "bytes": 2796,
+      "sha256": "51f2e1d00f69154a49aca95c1f17497622861b1d14c2de5ace0a9687dc5424ca"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3e/physical_parameters.yaml",
+      "bytes": 2728,
+      "sha256": "e30962b2fb402c445805443a19e819eb8fdc8a40a46aa15d7ce772d7fedce6f8"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur3e/visual_parameters.yaml",
+      "bytes": 2167,
+      "sha256": "21cd9b2a5810e36afd1174973482e7e3573b567166ad71cad81abdc078a6e469"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5/default_kinematics.yaml",
+      "bytes": 639,
+      "sha256": "4559bd027c93ce7c0e2a343d6f71f742fe4a67ea9d7ef67535189f4efbe9c3ac"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5/joint_limits.yaml",
+      "bytes": 2867,
+      "sha256": "279609c61e61c2097d3d7f47cc7fca1bfe66c939f1dc096eff8d140f9ec0e22f"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5/physical_parameters.yaml",
+      "bytes": 2774,
+      "sha256": "58b2a17bc1e5be5cc0ee0f093b81d58bbab5784e2f795a7cd51cdf6c3e8d0dae"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5/visual_parameters.yaml",
+      "bytes": 2151,
+      "sha256": "9dbb023fb35d688ac47fd69cf8f7f14c3e53a71dc11f713cc587965a7341ec80"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5e/default_kinematics.yaml",
+      "bytes": 649,
+      "sha256": "4ffc6086bb0118a5a8e4a3576ef41de878de946710799ea4835789063fa9c0bc"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5e/joint_limits.yaml",
+      "bytes": 2869,
+      "sha256": "1e908454a0fb073761a0c675f708eb003ca7d5333a9e0863ef87fe40d9abb3c7"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5e/physical_parameters.yaml",
+      "bytes": 2764,
+      "sha256": "79ea65367aa306015bf2e91b60b1edf7d1a7a6309671b8051a8d419675ca93ae"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur5e/visual_parameters.yaml",
+      "bytes": 1641,
+      "sha256": "b1c1a7c3adac54d0a39e4b546158f10ddb5462ae2e3038ee19f8d081b435bf03"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur7e/default_kinematics.yaml",
+      "bytes": 649,
+      "sha256": "4ffc6086bb0118a5a8e4a3576ef41de878de946710799ea4835789063fa9c0bc"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur7e/joint_limits.yaml",
+      "bytes": 2869,
+      "sha256": "1e908454a0fb073761a0c675f708eb003ca7d5333a9e0863ef87fe40d9abb3c7"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur7e/physical_parameters.yaml",
+      "bytes": 2764,
+      "sha256": "79ea65367aa306015bf2e91b60b1edf7d1a7a6309671b8051a8d419675ca93ae"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur7e/visual_parameters.yaml",
+      "bytes": 1641,
+      "sha256": "b1c1a7c3adac54d0a39e4b546158f10ddb5462ae2e3038ee19f8d081b435bf03"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur8long/default_kinematics.yaml",
+      "bytes": 699,
+      "sha256": "9e9be2fb54f2b92f184bb3f7b10934d6a4be19c66e07cc3df5ec1a97a6040f75"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur8long/joint_limits.yaml",
+      "bytes": 2490,
+      "sha256": "9f7d3294303f0bea7ed368f7d56eda27a59e088646527f3b792bdfe047780cfa"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur8long/physical_parameters.yaml",
+      "bytes": 2834,
+      "sha256": "b879347632416f85431a50a5c1c8a3cee9ec4796b0c31cccd2f411d86d5bbfd4"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/config/ur8long/visual_parameters.yaml",
+      "bytes": 1652,
+      "sha256": "4b22726f34da18a9aa6576ada097079000d408eafc90890f230bab68fe4823e7"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/package.xml",
+      "bytes": 572,
+      "sha256": "99257bb86cbe2e9f95c75188380d757b3f79d793a1daf041c268ac486a2c4c23"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/rviz/view_robot.rviz",
+      "bytes": 6395,
+      "sha256": "9378b776fc07395884909267a98e8d8347067012ea981c188f1b22a6bd717b54"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_hande_description/urdf/ur_hande.urdf.xacro",
+      "bytes": 16453,
+      "sha256": "dfe69a5a03cb82f15164fac5bdc2041079e8c454037afb9663c5b2bc56e62bbd"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/CHANGELOG.rst",
+      "bytes": 6801,
+      "sha256": "72ae6f1a3084825896d128785c97b25e0b93c6bd698265e432188baa90e59fc8"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/CMakeLists.txt",
+      "bytes": 851,
+      "sha256": "bee73d21411e2aafe8d1cdd50010678b17efe0b06ed7ea9c7e9a1304681e5054"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/config/controllers.yaml",
+      "bytes": 603,
+      "sha256": "f3df2588255311975a05daef85c18f1e28f02d59ef82dbc463fc234c279ff807"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/config/joint_limits.yaml",
+      "bytes": 866,
+      "sha256": "9c75603079576957854a0dc2101c642747ea6196b6d75f425bcd5e897d591842"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/config/kinematics.yaml",
+      "bytes": 279,
+      "sha256": "c61f0b72d20eebdad0d34cd0e5220bb0bafe93155cafbe8d5a0b6de75b040f84"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/config/ompl_planning.yaml",
+      "bytes": 3963,
+      "sha256": "2cfab4873ab1d346c554034af311ec444d0a5075912f61a6ec6b428b89f147fc"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/config/ur_servo.yaml",
+      "bytes": 5026,
+      "sha256": "d6b50b50979c593fa418cda0321dfe8dbbaf7d9ecea0d968c8cd89cb72bead2e"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/launch/ur_moveit.launch.py",
+      "bytes": 14680,
+      "sha256": "1873bcba637493388fa0bd9c61e3153de39d95dd9057b529525f585335311729"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/package.xml",
+      "bytes": 1837,
+      "sha256": "79c79dac11cf0ce7f22d43297e3791011c96533729095c45d33fe962bdd6de6f"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/rviz/view_robot.rviz",
+      "bytes": 10293,
+      "sha256": "01b00a81108108dc68e8fea0cd8edb1e1823d352689267e5be9b4a00b8a4880e"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/src/self_collision_inspector.cpp",
+      "bytes": 8714,
+      "sha256": "a44b9013352ff9b321428b1e65a2d3fb8ecae79b25fa5d8b33460bc7b24940ad"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/srdf/ur.srdf.xacro",
+      "bytes": 395,
+      "sha256": "e42c092c716b6959d0f6e5c7c1041d3a8759d310cc9ec60bbf72ef4c6e497cb4"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/srdf/ur_macro.srdf.xacro",
+      "bytes": 8427,
+      "sha256": "c79108319969a54b05b3c55fd472d445777f6c4f563338476b1e767339ad1e52"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/ur_moveit_config/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ros_backend1.1/src/ur_moveit_config/ur_moveit_config/launch_common.py",
+      "bytes": 3284,
+      "sha256": "d6ac02c79945c58b7741e07dc4bc37f6fa64ddeb3143a15d3c50f77a7debd4a2"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_approach_only.py",
+      "bytes": 1267,
+      "sha256": "c18a89ca3e9563316e132031fa7d2f7d926ac112900d736975f9c1def6e43f42"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_arm_speed_scale.py",
+      "bytes": 1179,
+      "sha256": "ec253b86ae171ac60e537d2577d808e82925459897a39cd4958f5c380d1def54"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_centered_descent.py",
+      "bytes": 2003,
+      "sha256": "8ff815b14d622042ddd239736ca8c825554578051c11400141660cea601bcd15"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_cheat_gripper.py",
+      "bytes": 871,
+      "sha256": "005998d1e380b0c7dc0342c8d049cbd1e3e19658c724dfecc7bbf6588ecf6511"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_cup_task.py",
+      "bytes": 2791,
+      "sha256": "875a955848401826d5ac09d3136f24634d1bfd2ccfae896a66eba5deb7300990"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_grasp_evidence.py",
+      "bytes": 1637,
+      "sha256": "5eba3aa30dc7505dc95042122cddaf9436a2c70618e21ef4189f9120c95902aa"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_gripper_camera.py",
+      "bytes": 1613,
+      "sha256": "8c8f32fbb91a0d0e247f4e0e7a4100688ad10b0dcbc67c91ef6ec8698441202c"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_level_carry.py",
+      "bytes": 1015,
+      "sha256": "ba3011373910cbcadbc471256e286511b6c342b616b26537fdac7a1bc7bc8a6e"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_physical_carry.py",
+      "bytes": 1028,
+      "sha256": "175e338b164a4641a1d30cfdaf6d0cb08b06f1086b7f5a10078af433051be182"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_release_clearance.py",
+      "bytes": 435,
+      "sha256": "8d5774965caafdf64998ebd66ad2c4e18284c9cb7b38d9f366afaefda57f13dd"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_servo_start_retry.py",
+      "bytes": 1339,
+      "sha256": "a2589251caecd6a858c03fce6d3a42e7af2a8ba9550921653f4eb77a6489f2e3"
+    },
+    {
+      "path": "ros_backend1.1/tests/test_slow_grasp.py",
+      "bytes": 808,
+      "sha256": "b3663be98b22e60ffa004801998ec4113094abbb9999d5c7a4e0b78bbd589066"
+    },
+    {
+      "path": "tools/capstone.py",
+      "bytes": 4493,
+      "sha256": "cf61b33836e3c817486e307c269e088c7d561dda77f280c3c3cc880feb6dedac"
+    },
+    {
+      "path": "tools/test_hosting.py",
+      "bytes": 2468,
+      "sha256": "4dc80d5eae690698ff2d3398d3ae37ec2a7a3e52711895d29112e9c92219bf6d"
+    },
+    {
+      "path": "tools/validate_source.py",
+      "bytes": 1360,
+      "sha256": "ece3ee9e360ec648f893c9ec750b4ad78177455f2cd5094adbe2598831643257"
+    }
+  ]
+}

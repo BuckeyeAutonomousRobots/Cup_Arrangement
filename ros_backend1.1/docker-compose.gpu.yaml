@@ -1,0 +1,13 @@
+# Linux NVIDIA override. EGL camera rendering is independent of the Xvfb viewer.
+services:
+  motion_planner:
+    gpus: all
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: graphics,utility,compute,display
+      SIM_GPU_RENDERING: "1"
+      ENABLE_GRIPPER_CAMERA: ${ENABLE_GRIPPER_CAMERA:-1}
+      ENABLE_DESKTOP: ${ENABLE_DESKTOP:-0}
+      ENABLE_NOVNC: ${ENABLE_NOVNC:-0}
+    volumes:
+      - ./runtime:/workspace/runtime

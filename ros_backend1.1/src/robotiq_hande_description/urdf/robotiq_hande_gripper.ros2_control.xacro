@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro
+    name="robotiq_hande_ros2_control"
+    params="name prefix grip_pos_min grip_pos_max tty_port baudrate parity data_bits stop_bit slave_id frequency_hz create_socat_tty socat_ip_address socat_port use_fake_hardware sim_gazebo:=false sim_ignition:=false"
+  >
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <xacro:if value="${sim_gazebo}">
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </xacro:if>
+
+        <xacro:if value="${sim_ignition}">
+          <!-- Match the UR arm backend on Humble/Gazebo Fortress. Mixing this with
+               gz_ros2_control/GazeboSimSystem leaves the finger interfaces claimed
+               but the simulated prismatic joints do not follow position commands. -->
+          <plugin>ign_ros2_control/IgnitionSystem</plugin>
+        </xacro:if>
+
+        <xacro:if value="${use_fake_hardware and not (sim_gazebo or sim_ignition)}">
+          <plugin>mock_components/GenericSystem</plugin>
+        </xacro:if>
+
+        <xacro:unless value="${use_fake_hardware or sim_gazebo or sim_ignition}">
+          <plugin>robotiq_hande_driver/RobotiqHandeHardwareInterface</plugin>
+          <param name="grip_pos_min">${grip_pos_min}</param>
+          <param name="grip_pos_max">${grip_pos_max}</param>
+
+          <param name="tty_port">${tty_port}</param>
+          <param name="baudrate">${baudrate}</param>
+          <param name="parity">${parity}</param>
+          <param name="data_bits">${data_bits}</param>
+          <param name="stop_bit">${stop_bit}</param>
+          <param name="slave_id">${slave_id}</param>
+          <param name="frequency_hz">${frequency_hz}</param>
+
+          <param name="create_socat_tty">${create_socat_tty}</param>
+          <param name="socat_ip_address">${socat_ip_address}</param>
+          <param name="socat_port">${socat_port}</param>
+        </xacro:unless>
+      </hardware>
+
+      <!-- The right finger joint uses the mimic feature -->
+      <joint name="${prefix}robotiq_hande_left_finger_joint">
+        <command_interface name="position">
+          <param name="min">${grip_pos_min}</param>
+          <param name="max">${grip_pos_max}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">${grip_pos_max}</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0</param>
+        </state_interface>
+      </joint>
+
+      <xacro:if value="${sim_gazebo or sim_ignition}">
+        <!-- In Gazebo, control both prismatic finger joints directly. URDF mimic is not a physical constraint
+             here, so leaving the right finger passive lets it slide along the rail when contact pushes it. -->
+        <joint name="${prefix}robotiq_hande_right_finger_joint">
+          <command_interface name="position">
+            <param name="min">${grip_pos_min}</param>
+            <param name="max">${grip_pos_max}</param>
+          </command_interface>
+          <state_interface name="position">
+            <param name="initial_value">${grip_pos_max}</param>
+          </state_interface>
+          <state_interface name="velocity">
+            <param name="initial_value">0</param>
+          </state_interface>
+        </joint>
+      </xacro:if>
+    </ros2_control>
+  </xacro:macro>
+</robot>

@@ -1,0 +1,6 @@
+**
+!Dockerfile
+!scripts/
+!scripts/entrypoint.sh
+!scripts/start_desktop.sh
+!scripts/gz

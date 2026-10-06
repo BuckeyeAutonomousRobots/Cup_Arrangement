@@ -1,0 +1,149 @@
+/right_arm/hand_pose_mapper:
+  ros__parameters:
+    use_sim_time: true
+    input_topic: /right_arm/received_pose_states
+    output_topic: /right_arm/target_twist_states
+    target_frame: right_base_link
+    ee_frame: right_tool0
+    target_ee_pose_topic: /right_arm/teleop/target_ee_pose
+    actual_ee_pose_topic: /right_arm/teleop/actual_ee_pose
+    publish_rate_hz: 60.0
+    stale_timeout_sec: 0.25
+    reset_hold_sec: 8.0
+    position_mapping_mode: unity_world_delta
+    attachment_use_absolute_position: true
+    attachment_enable_rotation: true
+    attachment_use_absolute_rotation: true
+    attachment_base_xyz: [0.0, -0.60, 0.0]
+    attachment_base_xyzw: [0.0, 0.0, 0.0, 1.0]
+    attachment_tool_position_offset_xyz: [0.0, 0.0, 0.0]
+    attachment_tool_rotation_offset_xyzw: [0.5, 0.5, 0.5, 0.5]
+    attachment_kp_angular: 3.0
+    attachment_max_angular_speed: 3.50
+    attachment_angular_deadband: 0.03
+    kp_linear: 6.0
+    max_linear_speed: 0.85
+    linear_deadband: 0.005
+    kp_angular: 8.0
+    max_angular_speed: 6.00
+    angular_deadband: 0.02
+    control_mode: hand_pose
+    start_in_gamepad_mode: false
+    allow_unity_control_mode_switch: false
+    gamepad_deadband: 0.15
+    gamepad_linear_speed_xyz: [0.42, 0.42, 0.42]
+    gamepad_linear_sign_xyz: [1.0, -1.0, 1.0]
+    gamepad_angular_speed_xyz: [0.0, 2.40, 2.40]
+    gamepad_angular_sign_xyz: [1.0, 1.0, -1.0]
+    map_axes: ["z", "x", "y"]
+    map_signs: [1.0, -1.0, 1.0]
+    rot_map_axes: ["z", "x", "y"]
+    rot_map_signs: [-1.0, 1.0, -1.0]
+    rot_scale_xyz: [1.0, 1.0, 1.0]
+    debug_rotation_mapping: false
+    debug_rotation_log_period_sec: 0.25
+    scale_xyz: [1.0, 1.0, 1.0]
+    offset_xyz: [0.0, 0.0, 0.0]
+    min_xyz: [-1.0, -1.0, -1.0]
+    max_xyz: [1.0, 1.0, 1.0]
+
+/right_arm/servo_command_bridge:
+  ros__parameters:
+    use_sim_time: true
+    input_topic: /right_arm/target_twist_states
+    output_topic: /right_arm/servo_node/delta_twist_cmds
+    default_frame_id: right_base_link
+    publish_rate_hz: 60.0
+    stale_timeout_sec: 0.25
+    require_tracked: true
+    auto_start_servo: true
+    start_servo_service: /right_arm/servo_node/start_servo
+    start_on_reset_release: true
+
+/right_arm/simple_gripper_command_bridge:
+  ros__parameters:
+    use_sim_time: true
+    input_topic: /right_arm/target_twist_states
+    output_topic: /right_hande_position_controller/commands
+    joint_states_topic: /joint_states
+    controlled_joint_names:
+      - right_robotiq_hande_left_finger_joint
+      - right_robotiq_hande_right_finger_joint
+    publish_rate_hz: 60.0
+    speed_m_per_s: 0.22
+    min_pos: -0.025
+    max_pos: 0.0
+    initial_pos: 0.0
+    command_mode: position
+    limit_stop_margin_m: 0.0005
+    joint_count: 2
+    second_joint_negate: false
+    stale_timeout_sec: 0.25
+    require_tracked: false
+
+/right_arm/coupled_gripper_controller:
+  ros__parameters:
+    use_sim_time: true
+    input_topic: /right_arm/target_twist_states
+    output_topic: /right_hande_position_controller/commands
+    joint_states_topic: /joint_states
+    controlled_joint_names:
+      - right_robotiq_hande_left_finger_joint
+      - right_robotiq_hande_right_finger_joint
+    publish_rate_hz: 60.0
+    speed_m_per_s: 0.22
+    close_speed_m_per_s: 0.40
+    open_speed_m_per_s: 0.22
+    min_pos: -0.025
+    max_pos: 0.0
+    initial_pos: 0.0
+    initialize_from_joint_state: true
+    squeeze_margin_m: 0.003
+    joint_count: 2
+    second_joint_negate: false
+    stale_timeout_sec: 0.25
+    require_tracked: false
+
+/right_arm/reset_manager:
+  ros__parameters:
+    use_sim_time: true
+    input_topic: /right_arm/target_twist_states
+    joint_states_topic: /joint_states
+    arm_velocity_topic: /right_joint_group_velocity_controller/commands
+    gripper_topic: /right_hande_position_controller/commands
+    gripper_command_mode: position
+    gripper_open_pos: 0.0
+    gripper_open_velocity: 0.03
+    home_joint_names:
+      - right_shoulder_pan_joint
+      - right_shoulder_lift_joint
+      - right_elbow_joint
+      - right_wrist_1_joint
+      - right_wrist_2_joint
+      - right_wrist_3_joint
+    home_joint_positions: [0.0, -1.57, 1.57, 0.0, 1.57, 0.0]
+    control_rate_hz: 60.0
+    kick_velocities: [0.35, -0.18, -0.28, 0.18, -0.28, 0.0]
+    kick_duration_sec: 1.5
+    home_kp: 1.2
+    home_max_vel: 0.60
+    home_tolerance: 0.03
+    home_timeout_sec: 8.0
+    settle_sec: 0.3
+    gripper_hold_open_sec: 0.6
+    gripper_joint_count: 2
+    gripper_second_joint_negate: false
+    min_reset_interval_sec: 2.5
+    start_servo_service: /right_arm/servo_node/start_servo
+    stop_servo_service: /right_arm/servo_node/stop_servo
+    reset_servo_status_service: /right_arm/servo_node/reset_servo_status
+    reset_cube_with_ign_service: false
+    world_name: ur_hande_dual_arm_tabletop
+    cube_model_name: ""
+    cube_reset_pose_xyz: [0.60, 0.25, 0.023]
+    cube_reset_pose_xyzw: [0.0, 0.0, 0.0, 1.0]
+    reset_scene_objects_with_ign_service: false
+    scene_layout_sdf_path: /workspace/simulation/worlds/ur_hande_dual_arm_tabletop.sdf
+    scene_reset_lift_z: 0.01
+    scene_reset_specs:
+      - ""

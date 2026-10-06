@@ -1,0 +1,24 @@
+#!/bin/bash
+set -euo pipefail
+
+if [ "$#" -eq 0 ]; then
+  exec ign "$@"
+fi
+
+subcommand="$1"
+shift
+
+case "${subcommand}" in
+  sim)
+    exec ign gazebo "$@"
+    ;;
+  topic)
+    exec ign topic "$@"
+    ;;
+  service)
+    exec ign service "$@"
+    ;;
+  *)
+    exec ign "${subcommand}" "$@"
+    ;;
+esac

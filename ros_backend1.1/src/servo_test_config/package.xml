@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>servo_test_config</name>
+  <version>0.1.0</version>
+  <description>Minimal UR5e fake-hardware + MoveIt Servo test launch.</description>
+  <maintainer email="user@example.com">User</maintainer>
+  <license>TODO</license>
+
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+  <depend>ament_index_python</depend>
+  <depend>xacro</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>moveit_servo</depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+
+  <exec_depend>ur_robot_driver</exec_depend>
+  <exec_depend>ur_description</exec_depend>
+  <exec_depend>ur_hande_description</exec_depend>
+  <exec_depend>robotiq_hande_description</exec_depend>
+  <exec_depend>ur_moveit_config</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

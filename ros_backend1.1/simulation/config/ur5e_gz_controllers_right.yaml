@@ -1,0 +1,39 @@
+right_controller_manager:
+  ros__parameters:
+    update_rate: 60
+    right_joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    right_joint_group_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    right_hande_position_controller:
+      type: position_controllers/JointGroupPositionController
+
+right_joint_group_velocity_controller:
+  ros__parameters:
+    joints:
+      - right_shoulder_pan_joint
+      - right_shoulder_lift_joint
+      - right_elbow_joint
+      - right_wrist_1_joint
+      - right_wrist_2_joint
+      - right_wrist_3_joint
+    interface_name: velocity
+
+right_joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - right_shoulder_pan_joint
+      - right_shoulder_lift_joint
+      - right_elbow_joint
+      - right_wrist_1_joint
+      - right_wrist_2_joint
+      - right_wrist_3_joint
+      - right_robotiq_hande_left_finger_joint
+      - right_robotiq_hande_right_finger_joint
+
+right_hande_position_controller:
+  ros__parameters:
+    joints:
+      - right_robotiq_hande_left_finger_joint
+      - right_robotiq_hande_right_finger_joint
+    interface_name: position

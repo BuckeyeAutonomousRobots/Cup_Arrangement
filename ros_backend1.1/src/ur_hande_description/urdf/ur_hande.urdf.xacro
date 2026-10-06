@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
+  <xacro:arg name="name" default="ur"/>
+  <xacro:arg name="ur_type" default="ur5x"/>
+
+  <xacro:arg name="tf_prefix" default=""/>
+  <xacro:arg name="enable_gripper_camera" default="false"/>
+  <!-- +90 degrees around tool Z: side view across the finger opening axis.
+       Rotate position and image orientation together; optical +X follows tool +X. -->
+  <xacro:arg name="camera_xyz" default="0 0.065 0.055"/>
+  <xacro:arg name="camera_rpy" default="0 -1.57079632679 1.57079632679"/>
+  <xacro:arg name="camera_rate" default="30"/>
+  <xacro:arg name="camera_hfov" default="1.57079632679"/>
+  <xacro:arg name="joint_limit_params" default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml"/>
+  <xacro:arg name="kinematics_params" default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml"/>
+  <xacro:arg name="physical_params" default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml"/>
+  <xacro:arg name="visual_params" default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml"/>
+  <xacro:arg name="transmission_hw_interface" default=""/>
+  <xacro:arg name="safety_limits" default="false"/>
+  <xacro:arg name="safety_pos_margin" default="0.15"/>
+  <xacro:arg name="safety_k_position" default="20"/>
+
+  <xacro:arg name="headless_mode" default="false"/>
+  <xacro:arg name="robot_ip" default="0.0.0.0"/>
+  <xacro:arg name="script_filename" default=""/>
+  <xacro:arg name="output_recipe_filename" default=""/>
+  <xacro:arg name="input_recipe_filename" default=""/>
+  <xacro:arg name="reverse_ip" default="0.0.0.0"/>
+  <xacro:arg name="script_command_port" default="50004"/>
+  <xacro:arg name="reverse_port" default="50001"/>
+  <xacro:arg name="script_sender_port" default="50002"/>
+  <xacro:arg name="trajectory_port" default="50003"/>
+
+  <xacro:arg name="use_tool_communication" default="false"/>
+  <xacro:arg name="tool_voltage" default="0"/>
+  <xacro:arg name="tool_parity" default="0"/>
+  <xacro:arg name="tool_baud_rate" default="115200"/>
+  <xacro:arg name="tool_stop_bits" default="1"/>
+  <xacro:arg name="tool_rx_idle_chars" default="1.5"/>
+  <xacro:arg name="tool_tx_idle_chars" default="3.5"/>
+  <xacro:arg name="tool_device_name" default="/tmp/ttyUR"/>
+  <xacro:arg name="tool_tcp_port" default="54321"/>
+
+  <xacro:arg name="use_fake_hardware" default="false"/>
+  <xacro:arg name="fake_sensor_commands" default="false"/>
+  <xacro:arg name="sim_gazebo" default="false"/>
+  <xacro:arg name="sim_ignition" default="false"/>
+  <xacro:arg name="include_ground_plane" default="false"/>
+  <xacro:arg name="simulation_controllers" default=""/>
+  <xacro:arg name="initial_positions_file" default="$(find ur_description)/config/initial_positions.yaml"/>
+
+  <xacro:property name="initial_positions_file" default="$(arg initial_positions_file)"/>
+  <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)}"/>
+  <xacro:property name="is_sim_gazebo" value="$(arg sim_gazebo)"/>
+  <xacro:property name="is_sim_ignition" value="$(arg sim_ignition)"/>
+  <xacro:property name="include_ground_plane" value="$(arg include_ground_plane)"/>
+  <xacro:property name="is_fake_hardware_requested" value="$(arg use_fake_hardware)"/>
+  <xacro:property name="hande_grip_min" value="${-0.025 if (is_sim_gazebo or is_sim_ignition) else 0.0}"/>
+  <xacro:property name="hande_grip_max" value="${0.0 if (is_sim_gazebo or is_sim_ignition) else 0.025}"/>
+  <!-- In simulation, simulator-backed ros2_control hardware must be selected, not mock hardware. -->
+  <xacro:property
+    name="use_fake_hardware_effective"
+    value="${is_fake_hardware_requested and not (is_sim_gazebo or is_sim_ignition)}"/>
+
+  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
+  <xacro:include filename="$(find robotiq_hande_description)/urdf/robotiq_hande_gripper.xacro"/>
+
+  <link name="world"/>
+
+  <xacro:if value="${(is_sim_gazebo or is_sim_ignition) and include_ground_plane}">
+    <link name="ground_plane">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="5 5 0"/>
+        </geometry>
+        <material name="ground_white">
+          <color rgba="1 1 1 0.5"/>
+        </material>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="5 5 0"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="ground_plane_joint" type="fixed">
+      <origin xyz="0 0 -0.01" rpy="0 0 0"/>
+      <parent link="world"/>
+      <child link="ground_plane"/>
+    </joint>
+  </xacro:if>
+
+  <xacro:ur_robot
+    name="$(arg name)"
+    tf_prefix="$(arg tf_prefix)"
+    parent="world"
+    joint_limits_parameters_file="$(arg joint_limit_params)"
+    kinematics_parameters_file="$(arg kinematics_params)"
+    physical_parameters_file="$(arg physical_params)"
+    visual_parameters_file="$(arg visual_params)"
+    generate_ros2_control_tag="${not (is_sim_gazebo or is_sim_ignition)}"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+    safety_limits="$(arg safety_limits)"
+    safety_pos_margin="$(arg safety_pos_margin)"
+    safety_k_position="$(arg safety_k_position)"
+    use_fake_hardware="${use_fake_hardware_effective}"
+    fake_sensor_commands="$(arg fake_sensor_commands)"
+    sim_gazebo="$(arg sim_gazebo)"
+    sim_ignition="$(arg sim_ignition)"
+    headless_mode="$(arg headless_mode)"
+    initial_positions="${xacro.load_yaml(initial_positions_file)}"
+    use_tool_communication="$(arg use_tool_communication)"
+    tool_voltage="$(arg tool_voltage)"
+    tool_parity="$(arg tool_parity)"
+    tool_baud_rate="$(arg tool_baud_rate)"
+    tool_stop_bits="$(arg tool_stop_bits)"
+    tool_rx_idle_chars="$(arg tool_rx_idle_chars)"
+    tool_tx_idle_chars="$(arg tool_tx_idle_chars)"
+    tool_device_name="$(arg tool_device_name)"
+    tool_tcp_port="$(arg tool_tcp_port)"
+    robot_ip="$(arg robot_ip)"
+    script_filename="$(arg script_filename)"
+    output_recipe_filename="$(arg output_recipe_filename)"
+    input_recipe_filename="$(arg input_recipe_filename)"
+    reverse_ip="$(arg reverse_ip)"
+    script_command_port="$(arg script_command_port)"
+    reverse_port="$(arg reverse_port)"
+    script_sender_port="$(arg script_sender_port)"
+    trajectory_port="$(arg trajectory_port)">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:ur_robot>
+
+  <xacro:robotiq_hande_gripper
+    name="$(arg tf_prefix)robotiq_hande_gripper"
+    prefix="$(arg tf_prefix)"
+    parent="$(arg tf_prefix)tool0"
+    grip_pos_min="${hande_grip_min}"
+    grip_pos_max="${hande_grip_max}"
+    tty_port="$(arg tool_device_name)"
+    baudrate="$(arg tool_baud_rate)"
+    parity="N"
+    data_bits="8"
+    stop_bit="$(arg tool_stop_bits)"
+    slave_id="9"
+    frequency_hz="10"
+    use_fake_hardware="${use_fake_hardware_effective}"
+    sim_gazebo="${is_sim_gazebo}"
+    sim_ignition="${is_sim_ignition}"
+    generate_ros2_control_tag="${not (is_sim_gazebo or is_sim_ignition)}"/>
+
+  <!--
+    Gazebo gripper camera is intentionally disabled for the current MR workflow.
+
+    The active camera preview/recording path is Unity-side:
+      UnityApp/Assets/Scripts/GripperCameraRecorder.cs
+      Unity scene object: GripperDataCamera
+
+    Keep this placeholder here instead of deleting the idea entirely. If we
+    later want Gazebo-authoritative camera images, re-enable a sensor mounted
+    on $(arg tf_prefix)robotiq_hande_end or $(arg tf_prefix)tool0, then add the
+    required Gazebo/ROS bridge and documentation for /gripper_camera/* topics.
+
+    Example shape, currently commented out:
+
+    <gazebo reference="$(arg tf_prefix)robotiq_hande_end">
+      <sensor name="$(arg tf_prefix)gripper_camera" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <topic>/$(arg tf_prefix)gripper_camera/image_raw</topic>
+        <update_rate>15</update_rate>
+        <camera>
+          <horizontal_fov>1.5708</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>5.0</far>
+          </clip>
+        </camera>
+      </sensor>
+    </gazebo>
+  -->
+
+  <!-- Camera body uses Gazebo +X forward. Optical frame uses ROS +Z forward,
+       +X right, +Y down. Fixed joints do not change the arm configuration. -->
+  <xacro:if value="$(arg enable_gripper_camera)">
+    <!-- Visual-only housing, behind the optical origin (+X forward).
+         No added inertia/collision: this marker must not alter robot dynamics. -->
+    <link name="$(arg tf_prefix)gripper_camera_link">
+      <visual name="$(arg tf_prefix)camera_housing">
+        <origin xyz="-0.024 0 0"/>
+        <geometry><box size="0.036 0.042 0.030"/></geometry>
+        <material name="camera_orange"><color rgba="1.0 0.40 0.02 1"/></material>
+      </visual>
+      <visual name="$(arg tf_prefix)camera_lens">
+        <origin xyz="-0.004 0 0" rpy="0 1.57079632679 0"/>
+        <geometry><cylinder radius="0.011" length="0.008"/></geometry>
+        <material name="camera_lens_blue"><color rgba="0.02 0.12 0.22 1"/></material>
+      </visual>
+    </link>
+    <joint name="$(arg tf_prefix)gripper_camera_joint" type="fixed">
+      <parent link="$(arg tf_prefix)tool0"/>
+      <child link="$(arg tf_prefix)gripper_camera_link"/>
+      <origin xyz="$(arg camera_xyz)" rpy="$(arg camera_rpy)"/>
+    </joint>
+    <link name="$(arg tf_prefix)gripper_camera_optical_frame"/>
+    <joint name="$(arg tf_prefix)gripper_camera_optical_joint" type="fixed">
+      <parent link="$(arg tf_prefix)gripper_camera_link"/>
+      <child link="$(arg tf_prefix)gripper_camera_optical_frame"/>
+      <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679"/>
+    </joint>
+    <gazebo reference="$(arg tf_prefix)gripper_camera_link">
+      <sensor name="$(arg tf_prefix)gripper_camera" type="camera">
+        <always_on>true</always_on>
+        <update_rate>$(arg camera_rate)</update_rate>
+        <topic>/$(arg tf_prefix)gripper_camera/image_raw</topic>
+        <camera>
+          <horizontal_fov>$(arg camera_hfov)</horizontal_fov>
+          <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+          <clip><near>0.02</near><far>5.0</far></clip>
+          <camera_info_topic>/$(arg tf_prefix)gripper_camera/camera_info</camera_info_topic>
+        </camera>
+      </sensor>
+    </gazebo>
+  </xacro:if>
+
+  <xacro:if value="${is_sim_gazebo or is_sim_ignition}">
+    <!--
+      Gazebo control works reliably when the UR arm and attached Hand-E are one
+      hardware system. Separate gripper ros2_control blocks can expose claimed
+      interfaces without moving the simulated finger joints.
+    -->
+    <ros2_control name="$(arg tf_prefix)ur5e_hande" type="system">
+      <hardware>
+        <xacro:if value="${is_sim_gazebo}">
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </xacro:if>
+        <xacro:if value="${is_sim_ignition}">
+          <plugin>ign_ros2_control/IgnitionSystem</plugin>
+        </xacro:if>
+      </hardware>
+
+      <joint name="$(arg tf_prefix)shoulder_pan_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <xacro:if value="${is_sim_gazebo}">
+          <command_interface name="effort"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['shoulder_pan_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="$(arg tf_prefix)shoulder_lift_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <xacro:if value="${is_sim_gazebo}">
+          <command_interface name="effort"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['shoulder_lift_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="$(arg tf_prefix)elbow_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <xacro:if value="${is_sim_gazebo}">
+          <command_interface name="effort"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['elbow_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="$(arg tf_prefix)wrist_1_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <xacro:if value="${is_sim_gazebo}">
+          <command_interface name="effort"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['wrist_1_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="$(arg tf_prefix)wrist_2_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <xacro:if value="${is_sim_gazebo}">
+          <command_interface name="effort"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['wrist_2_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="$(arg tf_prefix)wrist_3_joint">
+        <command_interface name="position"/>
+        <command_interface name="velocity"/>
+        <xacro:if value="${is_sim_gazebo}">
+          <command_interface name="effort"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_positions['wrist_3_joint']}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="$(arg tf_prefix)robotiq_hande_left_finger_joint">
+        <command_interface name="position">
+          <param name="min">${hande_grip_min}</param>
+          <param name="max">${hande_grip_max}</param>
+        </command_interface>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">${hande_grip_max}</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0</param>
+        </state_interface>
+      </joint>
+      <joint name="$(arg tf_prefix)robotiq_hande_right_finger_joint">
+        <command_interface name="position">
+          <param name="min">${hande_grip_min}</param>
+          <param name="max">${hande_grip_max}</param>
+        </command_interface>
+        <command_interface name="velocity"/>
+        <state_interface name="position">
+          <param name="initial_value">${hande_grip_max}</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0</param>
+        </state_interface>
+      </joint>
+    </ros2_control>
+  </xacro:if>
+
+  <xacro:if value="$(arg sim_gazebo)">
+    <gazebo reference="world"/>
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(arg simulation_controllers)</parameters>
+        <robot_param>robot_description</robot_param>
+        <robot_param_node>$(arg tf_prefix)robot_state_publisher</robot_param_node>
+        <controller_manager_name>$(arg tf_prefix)controller_manager</controller_manager_name>
+      </plugin>
+    </gazebo>
+  </xacro:if>
+
+  <xacro:if value="$(arg sim_ignition)">
+    <gazebo reference="world"/>
+    <gazebo>
+      <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(arg simulation_controllers)</parameters>
+        <robot_param>robot_description</robot_param>
+        <robot_param_node>$(arg tf_prefix)robot_state_publisher</robot_param_node>
+        <controller_manager_name>$(arg tf_prefix)controller_manager</controller_manager_name>
+        <controller_manager_node_name>$(arg tf_prefix)controller_manager</controller_manager_node_name>
+      </plugin>
+    </gazebo>
+  </xacro:if>
+</robot>

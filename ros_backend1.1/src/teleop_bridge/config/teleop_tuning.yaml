@@ -1,0 +1,129 @@
+# Unified teleop tuning file
+# Edit values, then restart Part 2/3 nodes with scripts/backend11_lifecycle.sh start_part23.
+
+hand_pose_mapper:
+  ros__parameters:
+    use_sim_time: true
+    target_frame: base_link
+    ee_frame: tool0
+    publish_rate_hz: 60.0
+    stale_timeout_sec: 0.25
+    reset_hold_sec: 8.0
+
+    # Position mapping mode:
+    # - world_delta: capture current hand + EE pose, then command EE_ref + mapped hand displacement
+    # - absolute: legacy behavior, map the incoming hand pose directly to an absolute EE target
+    # world_delta needs Unity HandPoseSender.sendRelativeToHeadset = false.
+    position_mapping_mode: unity_world_delta
+
+    # Linear/Angular target-chasing gains and caps
+    kp_linear: 2.0
+    max_linear_speed: 0.30
+    linear_deadband: 0.005
+    kp_angular: 4.0
+    max_angular_speed: 1.50
+    angular_deadband: 0.02
+
+    # Control mode:
+    # - hand_pose: current hand/controller position drives target EE position
+    # - gamepad: left stick drives XY, left trigger/grip drives Z
+    # Toggle live with left-controller Y button.
+    control_mode: hand_pose
+    start_in_gamepad_mode: false
+    gamepad_deadband: 0.15
+    gamepad_linear_speed_xyz: [0.20, 0.20, 0.20]
+    gamepad_linear_sign_xyz: [1.0, -1.0, 1.0]
+    gamepad_angular_speed_xyz: [0.0, 0.75, 0.75]
+    gamepad_angular_sign_xyz: [1.0, 1.0, -1.0]
+
+    # Position mapping: Unity/controller XYZ -> robot XYZ
+    map_axes: ["z", "x", "y"]
+    map_signs: [1.0, -1.0, 1.0]
+
+    # Rotation mapping: controller delta-rotation vector -> EE delta-rotation vector
+    # This stays delta-based; only the mapping/tuning is now separate from position.
+    rot_map_axes: ["z", "x", "y"]
+    rot_map_signs: [-1.0, 1.0, -1.0]
+    rot_scale_xyz: [1.0, 1.0, 1.0]
+
+    # Post-map transform and clamp workspace in target_frame.
+    # In world_delta mode, scale_xyz scales hand displacement and offset_xyz is normally zero.
+    # In absolute mode, offset_xyz is the legacy workspace offset.
+    scale_xyz: [1.0, 1.0, 1.0]
+    offset_xyz: [0.0, 0.0, 0.0]
+    min_xyz: [-1.0, -1.0, -1.0]
+    max_xyz: [1.0, 1.0, 1.0]
+
+servo_command_bridge:
+  ros__parameters:
+    use_sim_time: true
+    publish_rate_hz: 60.0
+    stale_timeout_sec: 0.25
+    require_tracked: true
+    auto_start_servo: true
+    start_on_reset_release: true
+
+keyboard_servo_override:
+  ros__parameters:
+    use_sim_time: true
+    output_topic: /servo_node/delta_twist_cmds
+    frame_id: base_link
+    publish_rate_hz: 60.0
+    key_timeout_sec: 0.25
+    linear_speed_xyz: [0.15, 0.15, 0.15]
+    linear_sign_xyz: [1.0, 1.0, 1.0]
+    angular_speed_xyz: [0.50, 0.50, 0.50]
+    angular_sign_xyz: [1.0, 1.0, 1.0]
+    auto_start_servo: true
+    start_servo_service: /servo_node/start_servo
+
+simple_gripper_command_bridge:
+  ros__parameters:
+    use_sim_time: true
+    publish_rate_hz: 60.0
+    speed_m_per_s: 0.03
+    min_pos: 0.0
+    max_pos: 0.025
+    initial_pos: 0.025
+    joint_count: 2
+    second_joint_negate: false
+    stale_timeout_sec: 0.25
+    require_tracked: true
+
+reset_manager:
+  ros__parameters:
+    use_sim_time: true
+    control_rate_hz: 60.0
+
+    # Reset "kick" when B is pressed
+    kick_velocities: [0.35, -0.18, -0.28, 0.18, -0.28, 0.0]
+    kick_duration_sec: 1.5
+
+    # Home pose after kick (radians): [pan, lift, elbow, wrist1, wrist2, wrist3]
+    home_joint_positions: [1.54, -1.62, 1.4, -1.2, -1.6, -0.11]
+    home_kp: 1.2
+    home_max_vel: 0.60
+    home_tolerance: 0.03
+    home_timeout_sec: 8.0
+    settle_sec: 0.3
+
+    gripper_open_pos: 0.025
+    gripper_hold_open_sec: 0.6
+    gripper_joint_count: 2
+    gripper_second_joint_negate: false
+    min_reset_interval_sec: 2.5
+
+    # Cube reset target pose
+    reset_cube_with_ign_service: false
+    world_name: ur_hande_tabletop
+    cube_model_name: ""
+    cube_reset_pose_xyz: [0.60, 0.25, 0.023]
+    cube_reset_pose_xyzw: [0.0, 0.0, 0.0, 1.0]
+
+    # Scene-object reset comes from the Gazebo setup world SDF.
+    reset_scene_objects_with_ign_service: true
+    scene_layout_sdf_path: /workspace/simulation/worlds/ur_hande_tabletop.sdf
+    # Reset dynamic table objects slightly above their setup pose, then let physics settle.
+    scene_reset_lift_z: 0.01
+    scene_reset_specs:
+      - ""
