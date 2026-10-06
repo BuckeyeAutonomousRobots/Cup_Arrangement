@@ -26,9 +26,11 @@ additional requirements. Offline clipping is not a substitute for these guards.
 
 ## Deliberately excluded
 
-- Demonstration recordings, raw robot logs and image caches.
+- Raw demonstration recordings, robot logs and image caches. The single
+  [public expert demo](../assets/demo/README.md) is a presentation video, not a
+  training dataset.
 - Checkpoints, optimizer states, downloaded pretrained weights and run folders.
-- Videos, screenshots of runs, slide decks and personal/session notes.
+- Other videos and run screenshots, slide decks and personal/session notes.
 - `.env`, credentials, SSH configuration and host-administration utilities.
 - Colcon build/install/log trees, generated worlds, vendored environments,
   dependency installers and CAD source models not required by the runtime.

@@ -3,18 +3,33 @@
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 638,
-      "sha256": "bc1b08a139ad38613a4ee6c0669631f5e74a67051f0f0843ef6d6f195b1d81d1"
+      "bytes": 750,
+      "sha256": "aea6b9bc6adc58c6fcef2480ad4cc407421c2e9ef39666ecdc8abe05b81d02ee"
     },
     {
       "path": "README.md",
-      "bytes": 3474,
-      "sha256": "ee0c1a1f6352e82db5ddc493ed6508b043ded52043169b0d5c9b9ada4999c9ac"
+      "bytes": 12992,
+      "sha256": "cad731aed4e27a18c981b7e5f6fc92f99a8125eecbc2d5d2fad2668ae204af28"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
       "bytes": 1319,
       "sha256": "d8508fddc7c2d0903c7aa0a1ec01c34854afd83093a92c16b38523b146c88dd8"
+    },
+    {
+      "path": "assets/demo/README.md",
+      "bytes": 1753,
+      "sha256": "c0be277c237959910710ef336e92efb2b3368db6bf6756e8c3c796d31bed97ab"
+    },
+    {
+      "path": "assets/demo/expert-cup-placement.jpg",
+      "bytes": 39907,
+      "sha256": "112e38a28135796ff97eb06e5426ead6c10c6ae51a06f62fc1c82ab754f698c3"
+    },
+    {
+      "path": "assets/demo/expert-cup-placement.mp4",
+      "bytes": 5049036,
+      "sha256": "0a772daffa68cb3aeba375533ea550ab8c6efde9b4c9cfce6b03ccbeac781684"
     },
     {
       "path": "config/hosting.env.example",
@@ -23,8 +38,8 @@
     },
     {
       "path": "docs/DATA_AND_REPRODUCTION.md",
-      "bytes": 2960,
-      "sha256": "4d74a4377b8d3ab0dce90c0f81dc9b5044162ffff41cf658ec4e1b368dc92444"
+      "bytes": 3076,
+      "sha256": "8fc26fbb547f31d961134307a5e45f20acc84c0dd999b7583b0cb191b0b413bc"
     },
     {
       "path": "docs/EXPERIMENTS.md",
@@ -33,8 +48,8 @@
     },
     {
       "path": "docs/HOSTING.md",
-      "bytes": 3292,
-      "sha256": "56577495b9208855a19e43fa0729362bb111e260c7515d037cd823a90158de2e"
+      "bytes": 330,
+      "sha256": "4ff9f39e9d94094f340b12f81c7d5b1c8d58089db6e8f913230bca88ff7d3092"
     },
     {
       "path": "docs/PROVENANCE.md",
@@ -43,13 +58,18 @@
     },
     {
       "path": "docs/SETUP.md",
-      "bytes": 4144,
-      "sha256": "7e84cff29fb4167ae434c92bb292d0922f32f90abd167d84711fb132d4672fcc"
+      "bytes": 1254,
+      "sha256": "88a9b72648ba6f5f3c2c72526576c97d56e0a7c135f6b5ec583a39c3db0be96a"
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 1913,
-      "sha256": "a32444ef64fe763250d7762890635eaa55ea0b87aa716540fff50302a12ac768"
+      "bytes": 2945,
+      "sha256": "8a473c38ed65f3089b757ecd90af7fddb5e7b6fea7f287c3a05e57a861dafd02"
+    },
+    {
+      "path": "docs/remote/README.md",
+      "bytes": 6124,
+      "sha256": "e6e98fabcf8f6b46edb46c9fe07e47e41310e6f38e914c0626d1f038be68b8ad"
     },
     {
       "path": "models/README.md",
@@ -1808,8 +1828,8 @@
     },
     {
       "path": "tools/validate_source.py",
-      "bytes": 1360,
-      "sha256": "ece3ee9e360ec648f893c9ec750b4ad78177455f2cd5094adbe2598831643257"
+      "bytes": 1455,
+      "sha256": "03d747c77048661dff951cd95dde94be8bd3bf1100779cd70c81a9cf36b380ca"
     }
   ]
 }

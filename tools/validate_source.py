@@ -24,7 +24,8 @@ for path in ROOT.rglob('*'):
         elif path.suffix in {'.xml', '.xacro', '.sdf', '.dae'}:
             ET.parse(path)
             counts['xml'] += 1
-        if path.name == '.env' or path.suffix in {'.pt','.pth','.safetensors','.npz','.npy','.mp4','.mov','.key','.pem'}:
+        public_demo = relative == 'assets/demo/expert-cup-placement.mp4'
+        if not public_demo and (path.name == '.env' or path.suffix in {'.pt','.pth','.safetensors','.npz','.npy','.mp4','.mov','.key','.pem'}):
             raise ValueError('Unexpected local/generated artifact')
     except Exception as exc:
         errors.append(f'{relative}: {exc}')
