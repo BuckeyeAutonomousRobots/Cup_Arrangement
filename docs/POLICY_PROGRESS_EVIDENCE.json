@@ -1,0 +1,139 @@
+{
+  "description": "Selected fields from retained historical evaluation reports. Not a rerun of the public checkout. Raw data and checkpoints excluded.",
+  "batches": [
+    {
+      "source_report": "models/diffusion_velocity_random5_20261030/RESULTS.json",
+      "source_sha256": "aedc4a00f11fa53cade80386f8e06bdaf10b79fe8f2636c2227d2fff6844f9ec",
+      "status": "completed",
+      "trials": [
+        {
+          "seed": 1172069737,
+          "status": "full_horizon_completed",
+          "success": true,
+          "lift_success": true,
+          "elapsed_sim_s": 89.995,
+          "max_cup_lift_m": 0.15795799522452136,
+          "xy_error_m": 0.0020883148622311224,
+          "rtf": 0.22261165843759878,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        },
+        {
+          "seed": 472915070,
+          "status": "full_horizon_completed",
+          "success": true,
+          "lift_success": true,
+          "elapsed_sim_s": 89.998,
+          "max_cup_lift_m": 0.15632612743141272,
+          "xy_error_m": 0.0008628508699124218,
+          "rtf": 0.21607380450930516,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        },
+        {
+          "seed": 1204105863,
+          "status": "full_horizon_completed",
+          "success": true,
+          "lift_success": true,
+          "elapsed_sim_s": 89.998,
+          "max_cup_lift_m": 0.15636831834679793,
+          "xy_error_m": 0.0008357179171110628,
+          "rtf": 0.21308216563010593,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        },
+        {
+          "seed": 717747123,
+          "status": "full_horizon_completed",
+          "success": true,
+          "lift_success": true,
+          "elapsed_sim_s": 90.0,
+          "max_cup_lift_m": 0.15865160063292616,
+          "xy_error_m": 0.0016033035431855867,
+          "rtf": 0.22150775046596477,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        },
+        {
+          "seed": 1859653081,
+          "status": "full_horizon_completed",
+          "success": true,
+          "lift_success": true,
+          "elapsed_sim_s": 89.997,
+          "max_cup_lift_m": 0.16058135539242363,
+          "xy_error_m": 0.0018722470266413502,
+          "rtf": 0.22550097168943498,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        }
+      ]
+    },
+    {
+      "source_report": "models/diffusion_velocity_designed3_20261102/RESULTS.json",
+      "source_sha256": "f3a905e5d41bc2ebddcca87a43af88a58c3fef357c8f136012cca40d412e2af2",
+      "status": "completed",
+      "trials": [
+        {
+          "seed": 2026110201,
+          "status": "full_horizon_completed",
+          "success": false,
+          "lift_success": true,
+          "elapsed_sim_s": 90.001,
+          "max_cup_lift_m": 0.14982308273758232,
+          "xy_error_m": 0.16776634712921903,
+          "rtf": 0.26930902541475327,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        },
+        {
+          "seed": 2026110202,
+          "status": "full_horizon_completed",
+          "success": true,
+          "lift_success": true,
+          "elapsed_sim_s": 90.0,
+          "max_cup_lift_m": 0.1541371623055029,
+          "xy_error_m": 0.0010162295894929692,
+          "rtf": 0.23579716920505386,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        },
+        {
+          "seed": 2026110203,
+          "status": "full_horizon_completed",
+          "success": true,
+          "lift_success": true,
+          "elapsed_sim_s": 89.998,
+          "max_cup_lift_m": 0.1546741209054302,
+          "xy_error_m": 0.004110336382976925,
+          "rtf": 0.22567600894123066,
+          "inputs": "wrist RGB + 8 joints only",
+          "actions": "velocity plus common finger target metres",
+          "startup_cycle": "learned from cycle-included data; no scripted open-close-reopen",
+          "scripted_startup_cycle_executed": false,
+          "checkpoint_sha256": "f8ad5ff1edac0a3d19b8bc9562b0249bbe55df1a992d56bce68ab84f56a90750"
+        }
+      ]
+    }
+  ]
+}

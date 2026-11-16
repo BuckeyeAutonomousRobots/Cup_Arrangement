@@ -6,17 +6,37 @@ releasing it through simulated contact. It includes a configurable tabletop
 scene, robot controllers, demonstration recording tools, and imitation-learning
 experiments using wrist-camera images and measured joint positions.
 
-The contact-based expert and a recorded position-reference replay have completed
-the task in simulation. **Learned autonomous pickup and placement are not yet
-validated.** Starting the simulator below loads the scene and controllers; it
-does not start a trained policy or an automatic cup-pickup demonstration.
-See [experiment results](docs/EXPERIMENTS.md) for the distinction.
+## Current progress — November 2026
 
-**November 2026 source update:** the repository now includes the
-[400-demonstration ACT/Diffusion comparison](docs/EXPERIMENTS_400.md), its training
-source, and tested collection-reliability components. All six 10,000-update
-training runs completed; those offline results do not establish closed-loop
-task success. Raw data and checkpoints remain outside this repository.
+- **Simulation and expert:** dual-arm tabletop scene, contact-based grasping,
+  wrist RGB camera, synchronized robot/action recording and randomized layouts.
+  The right arm performs the cup-to-plate task; the expert uses object ground truth.
+- **Dataset:** 400 accepted expert demonstrations (408 attempts). The initial
+  six-model comparison used a 320/40/40 episode train/validation/test split.
+- **Training:** ACT and Diffusion were compared with velocity, joint-position
+  and end-effector-pose action representations. All six initial 10,000-update
+  runs completed. See the [training results](docs/EXPERIMENTS_400.md).
+- **Later learned-policy results:** the later cycle-included Diffusion velocity
+  policy completed placement in **5/5 randomized trials** (October 30) and
+  **2/3 designed-layout trials** (November 2). All eight ran for 90 simulation
+  seconds and lifted the cup; the unsuccessful layout ended before placement.
+  Successful final horizontal placement errors were approximately **0.8–4.1 mm**.
+  These are small historical evaluation batches, **not a general reliability
+  claim** or results from the initial six-model training budget.
+- **Remaining work:** broader layout/repeatability evaluation, timing robustness
+  and clean-machine reproduction of the public package. A later repeat was
+  interrupted by a policy-response timing guard, so infrastructure reliability
+  remains a limitation. No physical-robot validation is claimed.
+
+The learned policy uses wrist RGB and measured joints, without expert takeover
+in those evaluations. See [per-trial result excerpts and source hashes](docs/POLICY_PROGRESS_EVIDENCE.json).
+Raw demonstrations, caches and trained weights are **not included**. The
+published research scripts are not a complete deployment bundle for the later
+policy. Older [experiment notes](docs/EXPERIMENTS.md) describe earlier milestones.
+
+**The walkthrough below starts the simulation, controllers and browser viewer.**
+It does not start training, collection or a learned policy. Run only one
+controller/experiment owner at a time.
 
 ## Expert demonstration
 
@@ -70,8 +90,8 @@ Use Compose 2.30 or newer if enabling the optional GPU configuration, which uses
 
 Allow room for the ROS image and build artifacts. A practical starting allocation
 is 16 GB RAM and 30 GB free disk; these are planning estimates, not measured
-minimum requirements. The initial CPU/headless setup does not require an NVIDIA
-GPU and leaves image capture disabled.
+minimum requirements. The initial CPU setup does not require an NVIDIA GPU and leaves wrist-camera
+image capture disabled. The browser scene viewer is separate from that camera.
 
 ### Windows prerequisites: WSL 2
 
@@ -136,14 +156,15 @@ git clone https://github.com/BuckeyeAutonomousRobots/Cup_Arrangement.git
 cd Cup_Arrangement
 cp config/hosting.env.example .hosting.env
 cp ros_backend1.1/.env.example ros_backend1.1/.env
+sed -i 's/^CAPSTONE_VIEWER=.*/CAPSTONE_VIEWER=1/' .hosting.env
 sed -i 's/^ENABLE_GRIPPER_CAMERA=.*/ENABLE_GRIPPER_CAMERA=0/' ros_backend1.1/.env
 python3 tools/capstone.py config
 python3 tools/capstone.py up --dry-run
 ```
 
 The configuration should show `CAPSTONE_MODE=local`, `CAPSTONE_GPU=0` and
-`CAPSTONE_VIEWER=0`. The dry run prints a local lifecycle command, without SSH.
-The camera is disabled explicitly for the first CPU/headless run; camera-based
+`CAPSTONE_VIEWER=1`. The dry run prints a local lifecycle command, without SSH.
+The camera is disabled explicitly for the first CPU run; camera-based
 learning requires a working renderer and is a separate step below. Do not
 recopy the example files over settings you have already customized.
 
@@ -154,6 +175,7 @@ python3 tools/capstone.py doctor
 python3 tools/capstone.py build-image
 python3 tools/capstone.py build-workspace
 python3 tools/capstone.py up
+CONTAINER=bar_cup_arrangement_backend bash ros_backend1.1/scripts/gpu_viewer.sh start
 ```
 
 `doctor` reports only the Compose version; it does not test daemon access.
@@ -161,7 +183,23 @@ python3 tools/capstone.py up
 `[ok] Built workspace packages:`. `up` generates the world from the active
 `baseline_v1` scene profile, starts Gazebo and the controllers, and prints
 `[ok] Started dual-arm Gazebo tabletop scaffold` before the remaining node logs.
-There is no desktop window in this headless configuration.
+Open **http://127.0.0.1:6080/vnc.html?autoconnect=1&resize=scale** in your browser.
+You should see the Gazebo scene with two arms, a raised workspace, a cup and a
+plate. The server runs headlessly; the last command opens a separate inspection
+GUI inside the browser desktop. This is software-rendered and may be slow.
+The wrist camera remains disabled until you configure GPU rendering below.
+
+For a remote Linux machine, run the build/start commands there and open a local
+SSH tunnel in another terminal on your laptop:
+
+```bash
+ssh -N -L 6080:127.0.0.1:6080 user@YOUR_LINUX_HOST
+```
+
+Then use the same browser address on your laptop. Keep the tunnel running;
+there is no need to expose noVNC publicly. For an occupied local port, use
+`-L 6082:127.0.0.1:6080` and browse to port 6082. See the
+[remote-host setup](docs/remote/README.md) for the launcher’s remote mode.
 
 ### Check, test and stop
 
@@ -206,8 +244,7 @@ packages. To rebuild after dependency changes, repeat `build-image`,
 
 ### Optional desktop and GPU rendering
 
-For a browser desktop, change `CAPSTONE_VIEWER=1` in `.hosting.env` before
-starting. Open `http://127.0.0.1:6080/vnc.html` in your browser. This enables an
+The quick start already sets `CAPSTONE_VIEWER=1` in `.hosting.env`. Open `http://127.0.0.1:6080/vnc.html` in your browser. This enables an
 Xvfb/noVNC desktop; the simulator server still runs headlessly. On a CPU setup,
 start the separate Gazebo viewer after `up`:
 
@@ -226,12 +263,27 @@ For **native Linux NVIDIA rendering**, first install a compatible driver and
 and verify Docker GPU access. Set `CAPSTONE_GPU=1` in `.hosting.env` and
 `ENABLE_GRIPPER_CAMERA=1` in `ros_backend1.1/.env`. The GPU configuration uses
 Ogre2/EGL for server-side rendering. With `CAPSTONE_VIEWER=1`, `up` also starts
-the separate inspection viewer. To keep the GPU server headless with the
-desktop disabled, launch with:
+the separate inspection viewer. To omit the inspection GUI while retaining the configured browser desktop, launch with:
 
 ```bash
 ENABLE_VIEWER=0 python3 tools/capstone.py up
 ```
+
+To disable the entire desktop, set `CAPSTONE_VIEWER=0` in `.hosting.env` before
+startup. Change GPU/camera settings only when no experiment is running; run
+`down`, then `up` to apply the new container configuration. Verify the GPU is
+visible inside the container and check that camera messages arrive:
+
+```bash
+docker exec bar_cup_arrangement_backend nvidia-smi
+docker exec bar_cup_arrangement_backend bash -lc \
+  'source /workspace/install/setup.bash && ros2 topic hz /right_gripper_camera/image_raw'
+```
+
+Stop the topic-rate check with Ctrl+C. A visible scene alone does not verify the
+wrist camera. Measured rates are wall-time rates: at RTF 0.2, a 30 Hz simulation
+camera produces roughly 6 frames per wall second. Historical GPU evaluations
+above recorded RTF about 0.21–0.27; this is not a performance guarantee.
 
 Windows GPU support requires the Docker Desktop WSL 2 backend and a compatible
 NVIDIA Windows driver; follow [Docker's GPU guide](https://docs.docker.com/desktop/features/gpu/).
@@ -266,6 +318,8 @@ docker exec bar_cup_arrangement_backend tail -n 80 /tmp/gz_dual_arm_tabletop.log
 | `models/baseline_v1/` | Contact-based expert and initial behavior-cloning tools |
 | `models/act_v1/` | Causal dataset adapter, ACT training and analysis |
 | `models/policy100/` | Position-target contracts and policy comparisons |
+| `models/six_model_v3r3_400_20261028_v2/` | Six-model 400-demo training and evaluation research source |
+| `tools/collection/` | Tested asynchronous recording and startup retry components |
 | `requirements/` | Recorded learning-environment package versions |
 | `tools/` | Local/remote launcher and source checks |
 

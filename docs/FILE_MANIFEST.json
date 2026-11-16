@@ -8,8 +8,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13365,
-      "sha256": "8a415aa3ea49c3cd2883310fdb8844a0bc7e1545d8e30d3d2dd0e6da644fa1f2"
+      "bytes": 16757,
+      "sha256": "3261e3f9a95511d3426a62e4f88da9e1d8438653dd8a935b945c0567e4fa79a8"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -60,6 +60,11 @@
       "path": "docs/LOCAL_UPDATE_PROVENANCE.json",
       "bytes": 5932,
       "sha256": "69c5d0077b8d1a87e01485598f32b99d2b415f2a5d21219cc1c177a0392079c8"
+    },
+    {
+      "path": "docs/POLICY_PROGRESS_EVIDENCE.json",
+      "bytes": 6118,
+      "sha256": "6a368897ffe6b294bdfb4355d6f0df5398dde1521f6a7a6fcbc089df7c9a5b58"
     },
     {
       "path": "docs/PROVENANCE.md",
