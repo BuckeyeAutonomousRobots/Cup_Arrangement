@@ -33,8 +33,8 @@
     },
     {
       "path": "cad/cup_saucer/README.md",
-      "bytes": 2887,
-      "sha256": "3375c66c5507d24530d965f068698aeac0e2fbc30240bf064fd7e8f680b59394"
+      "bytes": 3332,
+      "sha256": "968fa9157f7f4e99e67c206275ffb391aca6e8f6d4053f14b9d84076a7db10a7"
     },
     {
       "path": "cad/cup_saucer/cup.step",
@@ -48,13 +48,18 @@
     },
     {
       "path": "cad/cup_saucer/generate.py",
-      "bytes": 6648,
-      "sha256": "0fc3c4b421fe1b4860afcd6324899ac34c60140060dea25c15831a05806014b2"
+      "bytes": 4614,
+      "sha256": "bd1e397c54105e8183cbf9be97e7e05ccf7855e9cd620b5062cc4c2bf01aa4ee"
     },
     {
       "path": "cad/cup_saucer/preview.png",
-      "bytes": 75148,
-      "sha256": "422556951c61689b5a612d9105b898e087746e81b4204012d2c0a3ed4c019a6e"
+      "bytes": 558350,
+      "sha256": "8502a6b2c4b7b51a82c3419d116e5d046c1abd382f16ffe8c7f74a32bb0050e8"
+    },
+    {
+      "path": "cad/cup_saucer/render.py",
+      "bytes": 3444,
+      "sha256": "84c8a7d8ce9b5df34f3f8da3808c50eabb1dd03820bdf3c940962979c56bd877"
     },
     {
       "path": "cad/cup_saucer/requirements.txt",

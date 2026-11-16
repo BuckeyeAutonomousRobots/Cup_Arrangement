@@ -7,11 +7,6 @@ import math
 import xml.etree.ElementTree as ET
 import cadquery as cq
 import yaml
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import numpy as np
-from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 OUT = Path(__file__).resolve().parent
 ROOT = OUT.parents[1]
@@ -91,34 +86,7 @@ assembly.export(str(OUT/'cup_on_saucer.step'))
 assert len(cq.importers.importStep(str(OUT/'cup_on_saucer.step')).solids().vals()) == 2
 (OUT/'validation.json').write_text(json.dumps(report,indent=2)+'\n')
 
-# Render triangulated, reimported STEP geometry, not an illustrative substitute.
-fig = plt.figure(figsize=(15,6),facecolor='#f4f6f8')
-fig.suptitle('Cup & saucer | circular CAD',fontsize=22,color='#243447',y=.97)
-for i,(title,items,limits) in enumerate([
- ('CUP  /  Ø45 mm body × 50 mm',[('cup',(0,0,0))],(-34,47,-38,38,0,65)),
- ('SAUCER  /  Ø110 × 8 mm',[('saucer',(0,0,0))],(-65,65,-65,65,0,80)),
- ('ASSEMBLED  /  centered preview',[('saucer',(0,0,0)),('cup',(0,0,8))],(-65,65,-65,65,0,80))]):
-    ax=fig.add_subplot(1,3,i+1,projection='3d',computed_zorder=True)
-    ax.set_facecolor('#f4f6f8')
-    all_polys, all_colors = [], []
-    for name,shift in items:
-        verts,faces=loaded[name].translate(shift).tessellate(.02,.025)
-        polys=[[verts[j].toTuple() for j in face] for face in faces]
-        color=objs['espresso_cup' if name=='cup' else 'saucer']['color_rgba'][:3]
-        for tri in polys:
-            points = np.asarray(tri)
-            normal = np.cross(points[1]-points[0], points[2]-points[0])
-            normal /= max(np.linalg.norm(normal), 1e-12)
-            # Two-sided lighting handles STEP face winding consistently.
-            brightness = .64 + .36 * abs(np.dot(normal, np.array([.25,-.35,.9027735])))
-            all_polys.append(tri)
-            all_colors.append(np.asarray(color)*brightness)
-    ax.add_collection3d(Poly3DCollection(all_polys,facecolors=all_colors,linewidths=0,antialiased=False))
-    ax.set(xlim=limits[:2],ylim=limits[2:4],zlim=limits[4:])
-    ax.set_box_aspect((limits[1]-limits[0],limits[3]-limits[2],limits[5]-limits[4]))
-    ax.view_init(elev=29,azim=-62)
-    ax.set_axis_off();ax.set_title(title,fontsize=11,pad=1,color='#243447')
-fig.text(.5,.06,'True circular body • 3 mm cup walls/base • rectangular handle • flat cylindrical saucer',ha='center',fontsize=12,color='#526476')
-fig.subplots_adjust(left=.01,right=.99,bottom=.1,top=.86,wspace=.01)
-fig.savefig(OUT/'preview.png',dpi=160,facecolor=fig.get_facecolor())
+# Reuse the depth-tested renderer for the reimported STEP files.
+from render import render
+render()
 print(json.dumps(report['parts'],indent=2))

@@ -62,3 +62,16 @@ modify a simulation. The script verifies solid validity, STEP reimport volume
 and bounding dimensions, and the assembly's two-solid count. The preview is
 rendered from the reimported STEP geometry. See the
 [CadQuery STEP documentation](https://cadquery.readthedocs.io/en/latest/importexport.html).
+
+### Render only
+
+To refresh the preview without rewriting the STEP files:
+
+```bash
+MPLCONFIGDIR=/tmp/cup-cad-mpl /tmp/cup-cad-env/bin/python cad/cup_saucer/render.py
+```
+
+The renderer uses orthographic projection with per-pixel depth testing across
+all parts. This removes triangle-order artifacts at silhouettes and contact
+edges. Geometry is tessellated directly from the STEP files; the CAD geometry
+is not edited to hide rendering defects.
