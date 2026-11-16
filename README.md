@@ -313,7 +313,7 @@ docker exec bar_cup_arrangement_backend tail -n 80 /tmp/gz_dual_arm_tabletop.log
 ## Cup and saucer CAD
 
 [Download STEP models and view the render](cad/cup_saucer/README.md). These
-reproduce the baseline simulation geometry: a nominal 45 mm × 50 mm handled
+use the baseline dimensions with a smooth circular body: a 45 mm × 50 mm handled
 cup and a 110 mm × 8 mm flat saucer. Editable generation source and STEP
 round-trip validation are included.
 

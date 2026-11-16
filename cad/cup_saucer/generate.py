@@ -1,4 +1,4 @@
-"""Export exact baseline simulation primitives as millimetre STEP solids."""
+"""Export circular CAD using baseline dimensions, with simulation handle geometry."""
 from pathlib import Path
 import hashlib
 import importlib.util
@@ -53,10 +53,21 @@ def shape_from_link(link):
 
 link = ET.Element('link')
 gen.add_espresso_cup(link, objs['espresso_cup'], objs['espresso_cup']['color_rgba'])
-cup = shape_from_link(link)
+# Preserve the generator's bottom and handle, replace faceted walls with
+# true analytic cylindrical surfaces as requested. Simulation files are unchanged.
+for visual in list(link.findall('visual')):
+    if visual.attrib['name'].startswith('wall_'):
+        link.remove(visual)
+radius = objs['espresso_cup']['radius'] * 1000
+height = objs['espresso_cup']['height'] * 1000
+wall = 3.0
+body = cq.Workplane('XY').circle(radius).extrude(height).val()
+cavity = cq.Workplane('XY').workplane(offset=wall).circle(radius-wall).extrude(height).val()
+cup = body.cut(cavity).fuse(shape_from_link(link)).clean()
 s = objs['saucer']
 saucer = cq.Workplane('XY').circle(s['radius']*1000).extrude(s['height']*1000).val()
 report = {'units':'mm', 'source':'checked-in baseline_v1; remote host unavailable during export',
+          'geometry_revision':'Circular cup body replaces simulation wall segments; nominal dimensions and handle preserved',
           'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [PROFILE,GENERATOR]}, 'parts':{}}
 loaded = {}
 for name,shape in [('cup',cup),('saucer',saucer)]:
@@ -68,6 +79,8 @@ for name,shape in [('cup',cup),('saucer',saucer)]:
     bb,ob = shape.BoundingBox(),other.BoundingBox()
     assert abs(shape.Volume()-other.Volume()) < 1e-5
     assert max(abs(getattr(bb,k)-getattr(ob,k)) for k in ['xlen','ylen','zlen']) < 1e-6
+    if name == 'cup':
+        assert sum(face.geomType() == 'CYLINDER' for face in other.Faces()) >= 2
     loaded[name] = other
     report['parts'][name]={'valid_solid':True,'solid_count':1,'volume_mm3':other.Volume(),
         'bounds_xyz_mm':[ob.xlen,ob.ylen,ob.zlen], 'step_sha256':hashlib.sha256(path.read_bytes()).hexdigest(), 'roundtrip_passed':True}
@@ -80,16 +93,16 @@ assert len(cq.importers.importStep(str(OUT/'cup_on_saucer.step')).solids().vals(
 
 # Render triangulated, reimported STEP geometry, not an illustrative substitute.
 fig = plt.figure(figsize=(15,6),facecolor='#f4f6f8')
-fig.suptitle('Cup & saucer | simulation-matched CAD',fontsize=22,color='#243447',y=.97)
+fig.suptitle('Cup & saucer | circular CAD',fontsize=22,color='#243447',y=.97)
 for i,(title,items,limits) in enumerate([
- ('CUP  /  45 mm nominal body × 50 mm',[('cup',(0,0,0))],(-34,47,-38,38,0,65)),
+ ('CUP  /  Ø45 mm body × 50 mm',[('cup',(0,0,0))],(-34,47,-38,38,0,65)),
  ('SAUCER  /  Ø110 × 8 mm',[('saucer',(0,0,0))],(-65,65,-65,65,0,80)),
  ('ASSEMBLED  /  centered preview',[('saucer',(0,0,0)),('cup',(0,0,8))],(-65,65,-65,65,0,80))]):
     ax=fig.add_subplot(1,3,i+1,projection='3d',computed_zorder=True)
     ax.set_facecolor('#f4f6f8')
     all_polys, all_colors = [], []
     for name,shift in items:
-        verts,faces=loaded[name].translate(shift).tessellate(.12,.15)
+        verts,faces=loaded[name].translate(shift).tessellate(.02,.025)
         polys=[[verts[j].toTuple() for j in face] for face in faces]
         color=objs['espresso_cup' if name=='cup' else 'saucer']['color_rgba'][:3]
         for tri in polys:
@@ -105,7 +118,7 @@ for i,(title,items,limits) in enumerate([
     ax.set_box_aspect((limits[1]-limits[0],limits[3]-limits[2],limits[5]-limits[4]))
     ax.view_init(elev=29,azim=-62)
     ax.set_axis_off();ax.set_title(title,fontsize=11,pad=1,color='#243447')
-fig.text(.5,.06,'Exact primitive geometry • 3 mm cup walls/base • rectangular handle • flat cylindrical saucer',ha='center',fontsize=12,color='#526476')
+fig.text(.5,.06,'True circular body • 3 mm cup walls/base • rectangular handle • flat cylindrical saucer',ha='center',fontsize=12,color='#526476')
 fig.subplots_adjust(left=.01,right=.99,bottom=.1,top=.86,wspace=.01)
 fig.savefig(OUT/'preview.png',dpi=160,facecolor=fig.get_facecolor())
 print(json.dumps(report['parts'],indent=2))

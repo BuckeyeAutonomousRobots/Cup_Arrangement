@@ -1,6 +1,7 @@
 {
   "units": "mm",
   "source": "checked-in baseline_v1; remote host unavailable during export",
+  "geometry_revision": "Circular cup body replaces simulation wall segments; nominal dimensions and handle preserved",
   "source_sha256": {
     "ros_backend1.1/profiles/tasks/baseline_v1/task.yaml": "9b316281757eb852159952df1e54f3d53dc06347a808efd8db27ed0204975821",
     "ros_backend1.1/simulation/tools/generate_dual_arm_world_from_profiles.py": "3f20f8f0d91c09b6c800b0f20841a64ef877dcf5478ef53aef87121a5645317d"
@@ -9,13 +10,13 @@
     "cup": {
       "valid_solid": true,
       "solid_count": 1,
-      "volume_mm3": 25840.913069944992,
+      "volume_mm3": 25540.61841917818,
       "bounds_xyz_mm": [
-        63.00004319968,
-        45.00008421173044,
+        63.0,
+        45.0,
         50.0
       ],
-      "step_sha256": "3fd0d5f8c29c0682ea7b5920471dd9f6c8d08edd86ef9e7afe6fe9c956e0011a",
+      "step_sha256": "c2aa0abc578f0a80e936efeb7c574f42ff64e00ca9ee1824ef61fe38c76c81ff",
       "roundtrip_passed": true
     },
     "saucer": {
@@ -27,7 +28,7 @@
         110.0,
         8.0
       ],
-      "step_sha256": "a8331b40efcb842a26ffb742575090397b32aceeac72bf21cb126e526378d411",
+      "step_sha256": "97bb8885ccd8b36c442dfef3655d889033783bc10a3f0780db0b4901e01e22c5",
       "roundtrip_passed": true
     }
   }

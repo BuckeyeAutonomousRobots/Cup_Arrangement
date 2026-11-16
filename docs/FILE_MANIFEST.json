@@ -8,8 +8,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 17044,
-      "sha256": "629b39ffca722091d51dd59ac63312a97533283369a4b832f427be116bb598e2"
+      "bytes": 17049,
+      "sha256": "5eb67544303d9119be4bbd68efee87d73ee3d4944ce1aaa0e3f1ac1d34fe35c2"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -33,28 +33,28 @@
     },
     {
       "path": "cad/cup_saucer/README.md",
-      "bytes": 2931,
-      "sha256": "feb883f630d0ebb92cfd0541c13ccdf7dbff4eb76916a97cd1efc396956bc417"
+      "bytes": 2887,
+      "sha256": "3375c66c5507d24530d965f068698aeac0e2fbc30240bf064fd7e8f680b59394"
     },
     {
       "path": "cad/cup_saucer/cup.step",
-      "bytes": 253306,
-      "sha256": "3fd0d5f8c29c0682ea7b5920471dd9f6c8d08edd86ef9e7afe6fe9c956e0011a"
+      "bytes": 49053,
+      "sha256": "c2aa0abc578f0a80e936efeb7c574f42ff64e00ca9ee1824ef61fe38c76c81ff"
     },
     {
       "path": "cad/cup_saucer/cup_on_saucer.step",
-      "bytes": 259371,
-      "sha256": "d2098836d0e76c61d35c8fd077f0a1dbcdb2f4aeabd67e6a015d1b163d33a000"
+      "bytes": 56899,
+      "sha256": "a8c738db4e790fd0788985b277b4a938e10437a6149012e1f5b7bbf0dc400a33"
     },
     {
       "path": "cad/cup_saucer/generate.py",
-      "bytes": 5861,
-      "sha256": "263c61866c52c2fc172b58aaf1dc9e2ac008085979ef98d18ae7cdd4cc12b4d1"
+      "bytes": 6648,
+      "sha256": "0fc3c4b421fe1b4860afcd6324899ac34c60140060dea25c15831a05806014b2"
     },
     {
       "path": "cad/cup_saucer/preview.png",
-      "bytes": 68887,
-      "sha256": "bf4427e3f8b17ad480782be6e04b83e5a3342c970dde5268453ce1a4aaaa89e0"
+      "bytes": 75148,
+      "sha256": "422556951c61689b5a612d9105b898e087746e81b4204012d2c0a3ed4c019a6e"
     },
     {
       "path": "cad/cup_saucer/requirements.txt",
@@ -64,12 +64,12 @@
     {
       "path": "cad/cup_saucer/saucer.step",
       "bytes": 5750,
-      "sha256": "a8331b40efcb842a26ffb742575090397b32aceeac72bf21cb126e526378d411"
+      "sha256": "97bb8885ccd8b36c442dfef3655d889033783bc10a3f0780db0b4901e01e22c5"
     },
     {
       "path": "cad/cup_saucer/validation.json",
-      "bytes": 1050,
-      "sha256": "7fac631651d50c0ab0d7974d647cb78caaa6ee1e0ce0651f9b881a91bba47419"
+      "bytes": 1145,
+      "sha256": "e6ece35bd36dfb404fbe0648f3f09d8df28bbb368dba8b439e6b6c01c89f2b6b"
     },
     {
       "path": "config/hosting.env.example",

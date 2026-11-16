@@ -1,6 +1,6 @@
 # Cup and saucer CAD
 
-Simulation-matched CAD exported November 16, 2026. Dimensions come from the
+Circular CAD exported November 16, 2026. Nominal dimensions come from the
 checked-in `baseline_v1` task profile and its world generator. The remote host
 was unreachable during this export; no claim is made about uncommitted remote
 geometry changes. The legacy `cup_arrangement` profile has a different cup
@@ -26,28 +26,28 @@ centered placement, not the randomized starting scene.
 | Cup nominal body diameter | 45 |
 | Cup overall height | 50 |
 | Cup walls / bottom thickness | 3 / 3 |
-| Cup wall construction | 16 overlapping rectangular wall segments |
+| Cup wall construction | True concentric cylinders; inner diameter 39 mm |
 | Handle horizontal bars | 18 × 6 × 6 each |
 | Handle outer vertical bar | 6 × 6 × 36 |
 | Saucer diameter / thickness | 110 / 8 |
 
-The cup is intentionally faceted. Its wall-box corners slightly exceed the
-nominal circular diameter; see measured bounding dimensions in `validation.json`.
-The handle is rectangular and the saucer is a flat cylinder without a rim or
-recess, exactly as modeled in the simulator. No smoothing, fillets, manufacturing
-tolerances or ceramic design assumptions were added. These are simulation
-geometry exports, not manufacturing-qualified drawings.
+The cup body has **true analytic circular surfaces**, replacing the simulator's
+16 wall segments. The nominal dimensions, 3 mm walls/base and rectangular handle
+are preserved. The saucer is already a true circular cylinder. This CAD revision
+does not change the simulator geometry or physics. No fillets, manufacturing
+tolerances or ceramic design assumptions were added.
 
-The cup's overlapping simulation primitives are fused into one valid CAD solid;
-the saucer is a second valid solid. The original physical mass/friction and
-collision settings remain in the simulator and are not conveyed by STEP.
+Both individual parts are valid single solids. The original physical mass,
+friction and collision settings remain in the simulator and are not conveyed
+by STEP. These are design geometry exports, not manufacturing-qualified drawings.
 
 ## Regenerate / edit
 
 The Python source is the editable parametric model; STEP provides transferable
 solid geometry but does not preserve a native SolidWorks/FreeCAD feature tree.
-The cup generator calls the actual simulation geometry function, then converts
-its visual boxes/cylinder to CAD solids. Profile metres are converted to mm.
+The generator reads the simulation dimensions and handle/base primitives, then
+replaces the segmented walls with a hollow cylindrical body. Profile metres
+are converted to mm.
 
 From the repository root, in a separate Python 3.12 environment:
 
