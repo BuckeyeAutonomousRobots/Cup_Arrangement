@@ -1,5 +1,20 @@
 # Validation
 
+## November 15, 2026 local-source update
+
+- Python AST syntax checks: 195 files; Bash: 16; XML-family parsing: 21.
+- Five existing launcher configuration tests passed.
+- Three asynchronous writer tests and four controller-query tests passed.
+- Fourteen 400-demo completion/provenance and training-parity tests passed.
+- Published source hashes and repository-relative path adjustments are recorded
+  in `LOCAL_UPDATE_PROVENANCE.json`.
+
+These checks do not run a simulator, train a model, or verify a clean installation.
+The new research source requires external dataset and provenance artifacts; its
+README explains why it is not a turnkey training bundle.
+
+## Initial publication
+
 Checks performed on October 6, 2026 for the initial repository revision:
 
 - Python AST syntax checks: 180 files.

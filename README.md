@@ -12,6 +12,12 @@ validated.** Starting the simulator below loads the scene and controllers; it
 does not start a trained policy or an automatic cup-pickup demonstration.
 See [experiment results](docs/EXPERIMENTS.md) for the distinction.
 
+**November 2026 source update:** the repository now includes the
+[400-demonstration ACT/Diffusion comparison](docs/EXPERIMENTS_400.md), its training
+source, and tested collection-reliability components. All six 10,000-update
+training runs completed; those offline results do not establish closed-loop
+task success. Raw data and checkpoints remain outside this repository.
+
 ## Expert demonstration
 
 [![Expert demonstration: the gripper carries a cup toward the blue plate](assets/demo/expert-cup-placement.jpg)](assets/demo/expert-cup-placement.mp4)

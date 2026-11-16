@@ -43,6 +43,12 @@ checkpoints/
 *.avi
 *.log
 *.claim
+*.jsonl
+*.rgb
+*.bin
+cleanup_records/
+CONTINUATION_*.md
+LOCAL_STORAGE.md
 *.sqlite*
 *.tar*
 *.zip

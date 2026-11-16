@@ -1,0 +1,87 @@
+Frozen400 six-model comparison — prepared October28,2026
+
+v2 corrects an audit bookkeeping assumption:12 original qualification ledger
+entries omit recorder_sha256. Their preserved CLOCK_READINESS_VALIDATION.json
+and summary.json both contain the same verified recorder hash. Require agreement
+between those proofs and the ledger field whenever present. The first transition
+failed before cache/training at this missing optional ledger field; its directory,
+claim and logs remain preserved at models/six_model_v3r3_400_20261028.
+
+Readiness document, not evidence that data freezing or training has started.
+The immutable FROZEN_MANIFEST.json and runtime status files establish actual state.
+
+Dataset: all400 accepted unique v3r3 position-only randomized seeds0–399, only
+after successful terminal collection, completed cleanup, no active claims,
+collector exit, both owned worker containers stopped and exclusive batch lock
+availability. All accepted raw manifest files are rehashed before caching.
+All400 action schemas and measured-state orders must match; expert and bundle
+pins remain identical. Multiple qualified recorder/startup revisions are retained
+as provenance, not falsely described as identical transport implementations.
+Every failed/interrupted attempt, invalid tick, original raw recording, both paired
+view definitions, and the old220 experiment remain untouched.
+
+Output root: models/six_model_v3r3_400_20261028_v2.
+New FROZEN_MANIFEST.json, SPLIT.json, cache/, runs/, claims and logs only.
+NumPy default_rng(42) permutes sorted seeds0–399 once into320train/40validation/
+40test episodes. Identical split, cycle-excluded view, observation windows and
+validation anchors across all six. Never split individual frames across folds.
+
+Observations/preprocessing match the preserved220 reference implementation:
+current wrist RGB plus8 measured joint positions,10Hz causal alignment up to
+100ms source age, horizon16 including current action, execute4 predictions.
+RGB640x480 lossless PNG -> INTER_AREA320x240 withoutcrop, shared uint8 cache,
+ImageNet RGB mean/std. No pretrained vision or augmentations. One observation,
+not two-frame history. Windows cannot cross episode/invalid-gap/view boundaries;
+right-tail repeated values are masked identically. Train-only minmax centers and
+half-ranges; floors .001 arm/pose and .0001m fingers; no test normalization.
+Validation selection uses first-action physical MAE divided by train-only action
+standard deviation. Compare physical metrics, not ACT and diffusion training loss.
+
+Representations:
+- velocity:6 native published joint velocities(rad/s)+common jaw target(m).
+- joint_position:6 IK-derived planned angle references(rad), horizon0, plus jaw;
+  not native position-controller commands; initial hold is measured-derived.
+- ee_pose:internal world/right_tool0 XYZ(m)+xyzw quaternion reference plus jaw;
+  not a published Cartesian actuator command. Equivalent quaternion signs are
+  canonicalized. Measured state remains separate. Receipt-based causal alignment
+  is not a claim of exact actuator-application timing.
+
+ACT: unchanged installed LeRobot0.4.4 ResNet18 action-chunking transformer,
+512width,8heads,4encoder/1decoder layers,32D CVAE latent,4VAE encoder layers,
+L1+10*KL, zero latent at inference, no temporal ensemble. AdamW lr1e-4,
+backbone1e-5, weight decay1e-4.
+Diffusion: unchanged LeRobot0.4.4 ResNet18 with GroupNorm and conditional1DUNet,
+512/1024/2048 channels,100-step squaredcos_cap_v2 noise schedule, masked
+epsilon MSE, DDIM16 inference, Adam lr1e-4/betas(.95,.999)/weight decay1e-6,
+cosine schedule with500warmup, EMA power.75 for validation/checkpoints.
+Existing implementation provenance is verified against installed library files.
+Serialized configs record all defaults. Parameter counts and compute differ.
+
+All6: seed42,batch16,10,000updates=160,000 sampled windows, gradient norm clip1,
+90min/model bound. Exact window-pass counts recorded per model;400 data means
+fewer passes than the old220 run at the same update budget. These are bounded
+baselines, not convergence claims. Validation every1000updates on the same256
+deterministic validation windows. Test never selects checkpoints or settings.
+Both families restrict normalized predictions to[-1,1]. Reloaded checkpoints
+must reproduce predictions with the same noise seed.
+
+Sequential order: ACT velocity,joint_position,ee_pose, then diffusion velocity,
+joint_position,ee_pose. One GPU training child at a time under the existing batch
+lock. No collection restart, policy deployment, simulator trial or new scheduler.
+Any failure stops the pipeline and preserves outputs; no silent retries.
+
+Storage: compute exact cache estimate from all selected rows, add10%cache
+headroom,12GiB checkpoint allowance (prior best+last total ~7GiB),5GiB scratch,
+and preserve60GiB reserve. Runtime floor65GiB. Full budget checked before cache;
+training launch requires remaining checkpoint+scratch allowances above reserve.
+Do not delete or migrate unrelated files to make space. Respect competing GPU
+workloads. Old220 manifest/checkpoint/normalization hashes are protected.
+
+Correctness changes from220: distinct output root,400/320/40/40 count assertions,
+completion gate replacing obsolete pause-marker requirement, full raw integrity
+audit, explicit storage budget and protection of old artifacts. Architecture,
+objective, optimizer, budget, causal alignment and data-selection rules unchanged.
+
+Optional future offline evaluation script has40-test-episode metadata and1024
+fixed windows. It is not automatically run by this training-only transition.
+Closed-loop evaluation requires its own reconciled scope and remains unlaunched.

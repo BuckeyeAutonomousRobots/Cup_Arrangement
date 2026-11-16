@@ -1,15 +1,15 @@
 {
-  "scope": "Public code, configuration examples, licensed runtime assets and documentation; generated/private artifacts excluded",
+  "scope": "Public code, configuration examples, licensed assets and documentation. Excludes private/generated artifacts and this self-referential manifest. Updated 2026-11-15.",
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 750,
-      "sha256": "aea6b9bc6adc58c6fcef2480ad4cc407421c2e9ef39666ecdc8abe05b81d02ee"
+      "bytes": 822,
+      "sha256": "c3f49380c8023bd39ca5d2ccfe9ea9bef918cf552054d29511d7c9f621fdc565"
     },
     {
       "path": "README.md",
-      "bytes": 12992,
-      "sha256": "cad731aed4e27a18c981b7e5f6fc92f99a8125eecbc2d5d2fad2668ae204af28"
+      "bytes": 13365,
+      "sha256": "8a415aa3ea49c3cd2883310fdb8844a0bc7e1545d8e30d3d2dd0e6da644fa1f2"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -43,13 +43,23 @@
     },
     {
       "path": "docs/EXPERIMENTS.md",
-      "bytes": 2772,
-      "sha256": "1fdaae55dcc5b28d4691f7ff04c6f9d5ad4fae1ea1bfd332d9dea8eb4a59143e"
+      "bytes": 2932,
+      "sha256": "4ce254ca27ba21e902228fb948df813b11c1ec63e9f6ae4f547cb8a3bbd49cda"
+    },
+    {
+      "path": "docs/EXPERIMENTS_400.md",
+      "bytes": 3787,
+      "sha256": "79a8ac20fcb9c2b4dbea893439f5acbf5d3316b928ca82eb5b11458a9bb62a4b"
     },
     {
       "path": "docs/HOSTING.md",
       "bytes": 330,
       "sha256": "4ff9f39e9d94094f340b12f81c7d5b1c8d58089db6e8f913230bca88ff7d3092"
+    },
+    {
+      "path": "docs/LOCAL_UPDATE_PROVENANCE.json",
+      "bytes": 5932,
+      "sha256": "69c5d0077b8d1a87e01485598f32b99d2b415f2a5d21219cc1c177a0392079c8"
     },
     {
       "path": "docs/PROVENANCE.md",
@@ -63,8 +73,8 @@
     },
     {
       "path": "docs/VALIDATION.md",
-      "bytes": 2945,
-      "sha256": "8a473c38ed65f3089b757ecd90af7fddb5e7b6fea7f287c3a05e57a861dafd02"
+      "bytes": 3627,
+      "sha256": "9148ff1df5d2b0f0794a63dcaf4264a46453f15463c220d2b03230132491efb2"
     },
     {
       "path": "docs/remote/README.md",
@@ -73,8 +83,8 @@
     },
     {
       "path": "models/README.md",
-      "bytes": 722,
-      "sha256": "e4f1a3052d39a275f70c60b909f27659dd9e2786769db02ce962e5fb889990c0"
+      "bytes": 936,
+      "sha256": "61ab2888df577317630ce958e46487d046724fa30b2c125e29f8d71b9b92eac5"
     },
     {
       "path": "models/act_v1/analyze_camera_latency.py",
@@ -470,6 +480,71 @@
       "path": "models/policy100/train_wrist_quadratic_once.py",
       "bytes": 1529,
       "sha256": "489ae0acadc19d5a244b080beaa1700dcfb1832415e514ea9c174decf0d15064"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/PROTOCOL.txt",
+      "bytes": 5681,
+      "sha256": "4a99f638d1a140f849e57b69ccaacae8221878bfa354d0667be4e77ced7a1093"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/README.md",
+      "bytes": 2535,
+      "sha256": "7ac5e1290e765df445c86c640596f7b32defffa3411d6bf70bca54344fcdb063"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/audit_collection.py",
+      "bytes": 7487,
+      "sha256": "0ea0d6e2766391c657a21c44db421a549c30bea13d8e4b73a9e76e25a3437ceb"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/common.py",
+      "bytes": 4336,
+      "sha256": "61a6985e91ca29a7d6fae31425675425f75bcdee10f037324263ca0cb65d7a10"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/offline_evaluate.py",
+      "bytes": 3439,
+      "sha256": "1c728f1eb80de986792e64f227fff750a5b6f28024d7be23152686095edc1a44"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/prepare_data.py",
+      "bytes": 7084,
+      "sha256": "849e85f6f39fa5893d6d33dfef20b9094df7fae7b6ef5574a436aa2b3753a0b4"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/reference220/common.py",
+      "bytes": 4336,
+      "sha256": "61a6985e91ca29a7d6fae31425675425f75bcdee10f037324263ca0cb65d7a10"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/reference220/train_one.py",
+      "bytes": 7416,
+      "sha256": "967c72c1a02711b46f4ddc6cd76bf3e35628c01f2b7739fa8464de149ec606ab"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/test_transition.py",
+      "bytes": 3906,
+      "sha256": "55064cc033c2da5928886cd6e83864f47cb6ee68cd9da8edb9c6e00d3dd08098"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/train_driver.py",
+      "bytes": 3166,
+      "sha256": "0a4008592267e590fad7c490d9873ccb62acedcb4db39068a4e869ea34736361"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/train_one.py",
+      "bytes": 7409,
+      "sha256": "5e90c4bb3dd16507f58033a876860fa4068037449f2225f05e219a4fa7844aa6"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/transition_guard.py",
+      "bytes": 3520,
+      "sha256": "74d6d3a3b2a9d33f79def1816a945363b7b04f6df368d17d5b188decd01fe471"
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/validate_cache.py",
+      "bytes": 2749,
+      "sha256": "c9d993ea33c1f6d83f2fb10932433ef170f1dbfd2274f01d0935e259261e0f91"
     },
     {
       "path": "requirements/training-observed.txt",
@@ -1820,6 +1895,31 @@
       "path": "tools/capstone.py",
       "bytes": 4493,
       "sha256": "cf61b33836e3c817486e307c269e088c7d561dda77f280c3c3cc880feb6dedac"
+    },
+    {
+      "path": "tools/collection/README.md",
+      "bytes": 1441,
+      "sha256": "4f8634368e77d535e3011da79b822beb09d7b119718f071a8902620181eb4553"
+    },
+    {
+      "path": "tools/collection/async_sink.py",
+      "bytes": 2000,
+      "sha256": "94025b386094f815a2361d296a809bc8ed53749f34915411b5fc7279947e2d32"
+    },
+    {
+      "path": "tools/collection/startup_probe_rpc_retry.py",
+      "bytes": 2911,
+      "sha256": "a655c427db348bf54e2814505faad5a31bfdf9aa3b391439be9df1198344abe7"
+    },
+    {
+      "path": "tools/collection/test_async_sink.py",
+      "bytes": 944,
+      "sha256": "f958ad2b2f5e82154535beb927612019437f890307f5574c1f1f9e49ea5609a5"
+    },
+    {
+      "path": "tools/collection/test_probe_retry.py",
+      "bytes": 2354,
+      "sha256": "62fe090a14f753495c2c3d49deb01c246b548ea88534b26ce8e632ba6277494b"
     },
     {
       "path": "tools/test_hosting.py",

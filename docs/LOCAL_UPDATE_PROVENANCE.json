@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-15",
+  "scope": "Selected local research source; no data, credentials, checkpoints or host orchestration state",
+  "files": [
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/common.py",
+      "local_source_sha256": "5d962d013a8954c5359ba8fdb8e095b4f406b2521d52842ee6e675ab4626aab8",
+      "published_sha256": "61a6985e91ca29a7d6fae31425675425f75bcdee10f037324263ca0cb65d7a10",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/prepare_data.py",
+      "local_source_sha256": "ebeb9ee1de71e2ee58b7617ecedae1b0aa13f9928dec62f5e7b3d1671f20de74",
+      "published_sha256": "849e85f6f39fa5893d6d33dfef20b9094df7fae7b6ef5574a436aa2b3753a0b4",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/train_one.py",
+      "local_source_sha256": "5e90c4bb3dd16507f58033a876860fa4068037449f2225f05e219a4fa7844aa6",
+      "published_sha256": "5e90c4bb3dd16507f58033a876860fa4068037449f2225f05e219a4fa7844aa6",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/train_driver.py",
+      "local_source_sha256": "0a4008592267e590fad7c490d9873ccb62acedcb4db39068a4e869ea34736361",
+      "published_sha256": "0a4008592267e590fad7c490d9873ccb62acedcb4db39068a4e869ea34736361",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/transition_guard.py",
+      "local_source_sha256": "e79758616dff64087f1080700bc1e38843836d01c91ac725e285db70a7c28e07",
+      "published_sha256": "74d6d3a3b2a9d33f79def1816a945363b7b04f6df368d17d5b188decd01fe471",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/validate_cache.py",
+      "local_source_sha256": "c9d993ea33c1f6d83f2fb10932433ef170f1dbfd2274f01d0935e259261e0f91",
+      "published_sha256": "c9d993ea33c1f6d83f2fb10932433ef170f1dbfd2274f01d0935e259261e0f91",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/audit_collection.py",
+      "local_source_sha256": "0ea0d6e2766391c657a21c44db421a549c30bea13d8e4b73a9e76e25a3437ceb",
+      "published_sha256": "0ea0d6e2766391c657a21c44db421a549c30bea13d8e4b73a9e76e25a3437ceb",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/offline_evaluate.py",
+      "local_source_sha256": "1c728f1eb80de986792e64f227fff750a5b6f28024d7be23152686095edc1a44",
+      "published_sha256": "1c728f1eb80de986792e64f227fff750a5b6f28024d7be23152686095edc1a44",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/test_transition.py",
+      "local_source_sha256": "55064cc033c2da5928886cd6e83864f47cb6ee68cd9da8edb9c6e00d3dd08098",
+      "published_sha256": "55064cc033c2da5928886cd6e83864f47cb6ee68cd9da8edb9c6e00d3dd08098",
+      "adjustment": "Resolve repository root from script location; historical data contracts retained."
+    },
+    {
+      "path": "tools/collection/async_sink.py",
+      "local_source_sha256": "94025b386094f815a2361d296a809bc8ed53749f34915411b5fc7279947e2d32",
+      "published_sha256": "94025b386094f815a2361d296a809bc8ed53749f34915411b5fc7279947e2d32",
+      "adjustment": "None; preserved tested local source."
+    },
+    {
+      "path": "tools/collection/test_async_sink.py",
+      "local_source_sha256": "f958ad2b2f5e82154535beb927612019437f890307f5574c1f1f9e49ea5609a5",
+      "published_sha256": "f958ad2b2f5e82154535beb927612019437f890307f5574c1f1f9e49ea5609a5",
+      "adjustment": "None; preserved tested local source."
+    },
+    {
+      "path": "tools/collection/startup_probe_rpc_retry.py",
+      "local_source_sha256": "a655c427db348bf54e2814505faad5a31bfdf9aa3b391439be9df1198344abe7",
+      "published_sha256": "a655c427db348bf54e2814505faad5a31bfdf9aa3b391439be9df1198344abe7",
+      "adjustment": "None; preserved tested local source."
+    },
+    {
+      "path": "tools/collection/test_probe_retry.py",
+      "local_source_sha256": "62fe090a14f753495c2c3d49deb01c246b548ea88534b26ce8e632ba6277494b",
+      "published_sha256": "62fe090a14f753495c2c3d49deb01c246b548ea88534b26ce8e632ba6277494b",
+      "adjustment": "None; preserved tested local source."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/reference220/common.py",
+      "local_source_sha256": "b73c4ddd5e31f8157b504e8788e0aed40f04de75c2b98774a56c1798e0a168b6",
+      "published_sha256": "61a6985e91ca29a7d6fae31425675425f75bcdee10f037324263ca0cb65d7a10",
+      "adjustment": "Source-only 220-demo parity fixture; same path normalization as successor."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/reference220/train_one.py",
+      "local_source_sha256": "967c72c1a02711b46f4ddc6cd76bf3e35628c01f2b7739fa8464de149ec606ab",
+      "published_sha256": "967c72c1a02711b46f4ddc6cd76bf3e35628c01f2b7739fa8464de149ec606ab",
+      "adjustment": "Source-only 220-demo parity fixture; same path normalization as successor."
+    },
+    {
+      "path": "models/six_model_v3r3_400_20261028_v2/PROTOCOL.txt",
+      "local_source_sha256": "4a99f638d1a140f849e57b69ccaacae8221878bfa354d0667be4e77ced7a1093",
+      "published_sha256": "4a99f638d1a140f849e57b69ccaacae8221878bfa354d0667be4e77ced7a1093",
+      "adjustment": "None; historical experiment protocol."
+    }
+  ]
+}

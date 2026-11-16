@@ -1,5 +1,9 @@
 # Experiment status — October 6, 2026
 
+This page preserves the October 6 milestone. See the
+[400-demonstration update](EXPERIMENTS_400.md) for the later training and
+collection-reliability results.
+
 The task goal is learned autonomous cup pickup, transfer, placement and release.
 That goal is **not yet achieved** by the learned policies evaluated here.
 
