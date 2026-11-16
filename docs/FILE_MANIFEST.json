@@ -1,5 +1,5 @@
 {
-  "scope": "Public code, configuration examples, licensed assets and documentation. Excludes private/generated artifacts and this self-referential manifest. Updated 2026-11-15.",
+  "scope": "Public code, configuration examples, licensed assets and documentation. Excludes private/generated artifacts and this self-referential manifest. Updated 2026-11-16.",
   "files": [
     {
       "path": ".gitignore",
@@ -8,8 +8,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 16757,
-      "sha256": "3261e3f9a95511d3426a62e4f88da9e1d8438653dd8a935b945c0567e4fa79a8"
+      "bytes": 17044,
+      "sha256": "629b39ffca722091d51dd59ac63312a97533283369a4b832f427be116bb598e2"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -30,6 +30,46 @@
       "path": "assets/demo/expert-cup-placement.mp4",
       "bytes": 5049036,
       "sha256": "0a772daffa68cb3aeba375533ea550ab8c6efde9b4c9cfce6b03ccbeac781684"
+    },
+    {
+      "path": "cad/cup_saucer/README.md",
+      "bytes": 2931,
+      "sha256": "feb883f630d0ebb92cfd0541c13ccdf7dbff4eb76916a97cd1efc396956bc417"
+    },
+    {
+      "path": "cad/cup_saucer/cup.step",
+      "bytes": 253306,
+      "sha256": "3fd0d5f8c29c0682ea7b5920471dd9f6c8d08edd86ef9e7afe6fe9c956e0011a"
+    },
+    {
+      "path": "cad/cup_saucer/cup_on_saucer.step",
+      "bytes": 259371,
+      "sha256": "d2098836d0e76c61d35c8fd077f0a1dbcdb2f4aeabd67e6a015d1b163d33a000"
+    },
+    {
+      "path": "cad/cup_saucer/generate.py",
+      "bytes": 5861,
+      "sha256": "263c61866c52c2fc172b58aaf1dc9e2ac008085979ef98d18ae7cdd4cc12b4d1"
+    },
+    {
+      "path": "cad/cup_saucer/preview.png",
+      "bytes": 68887,
+      "sha256": "bf4427e3f8b17ad480782be6e04b83e5a3342c970dde5268453ce1a4aaaa89e0"
+    },
+    {
+      "path": "cad/cup_saucer/requirements.txt",
+      "bytes": 49,
+      "sha256": "e4c20b034d89a4385ad142c9ddfd59627626829bda1bdb04728a8d37c09dc9cb"
+    },
+    {
+      "path": "cad/cup_saucer/saucer.step",
+      "bytes": 5750,
+      "sha256": "a8331b40efcb842a26ffb742575090397b32aceeac72bf21cb126e526378d411"
+    },
+    {
+      "path": "cad/cup_saucer/validation.json",
+      "bytes": 1050,
+      "sha256": "7fac631651d50c0ab0d7974d647cb78caaa6ee1e0ce0651f9b881a91bba47419"
     },
     {
       "path": "config/hosting.env.example",
